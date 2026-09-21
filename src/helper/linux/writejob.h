@@ -23,6 +23,7 @@
 
 #include "job.h"
 
+#include <QCryptographicHash>
 #include <QFile>
 #include <QFileSystemWatcher>
 #include <QProcess>
@@ -45,6 +46,8 @@ public:
     bool writeCompressed(int fd);
     bool writePlain(int fd);
     bool check(int fd);
+    bool verifyReadback(int fd);
+    bool writeBlock(int fd, char *buffer, qint64 len);
 
 public slots:
     void work() override;
@@ -52,6 +55,9 @@ public slots:
 
 private:
     QFileSystemWatcher watcher{};
+    // What went onto the drive (after decompression), for the read-back check.
+    QCryptographicHash m_writtenHash{QCryptographicHash::Sha256};
+    qint64 m_written{0};
 };
 
 #endif // WRITEJOB_H

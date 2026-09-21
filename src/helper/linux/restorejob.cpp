@@ -73,6 +73,7 @@ void RestoreJob::work()
         err << tr("Failed to open device for writing");
         err.flush();
         qApp->exit(1);
+        return;
     }
 
     auto bufferOwner = pageAlignedBuffer();
@@ -81,49 +82,45 @@ void RestoreJob::work()
 
     memset(buffer, '\0', size);
 
-    // Overwrite first 128 blocks with zeroes
-    for (int i = 0; i < 128; i++) {
-        qint64 written = ::write(fd.fileDescriptor(), buffer, size);
-        if (written != size) {
-            err << tr("Destination drive is not writable");
-            err.flush();
-            qApp->exit(1);
+    off_t filesize = lseek(fd.fileDescriptor(), 0, SEEK_END);
+    if (filesize == static_cast<off_t>(-1) || lseek(fd.fileDescriptor(), 0, SEEK_SET) == static_cast<off_t>(-1)) {
+        err << tr("Failed to get file size");
+        err.flush();
+        qApp->exit(1);
+        return;
+    }
+
+    // Zero the first and last 128 blocks (512 MiB each), where partition
+    // tables, the ISO9660 volume descriptors and the backup GPT live. On a
+    // drive too small for that, zero each half instead of running off its end.
+    const off_t wipe = qMin<off_t>(128 * size, (filesize / 2) / 4096 * 4096);
+    auto zero = [&](off_t from) {
+        if (lseek(fd.fileDescriptor(), from, SEEK_SET) == static_cast<off_t>(-1))
+            return false;
+        for (off_t done = 0; done < wipe;) {
+            const qint64 chunk = qMin<off_t>(size, wipe - done);
+            if (::write(fd.fileDescriptor(), buffer, chunk) != chunk)
+                return false;
+            done += chunk;
         }
+        return true;
+    };
+
+    if (!zero(0)) {
+        err << tr("Destination drive is not writable");
+        err.flush();
+        qApp->exit(1);
+        return;
     }
 
     out << "35\n";
     out.flush();
 
-    // Rewind the filepointer to the last 128 blocks
-    off_t filesize = lseek(fd.fileDescriptor(), 0, SEEK_END);
-    if (filesize == static_cast<off_t>(-1)) {
-        err << tr("Failed to get file size");
+    if (!zero((filesize - wipe) / 4096 * 4096)) {
+        err << tr("Destination drive is not writable");
         err.flush();
         qApp->exit(1);
-    }
-
-    off_t offset = filesize - (128 * size);
-    if (offset < 0) {
-        err << tr("File size is smaller than 128 blocks");
-        err.flush();
-        qApp->exit(1);
-    }
-
-    // Move the file pointer to the calculated offset
-    if (lseek(fd.fileDescriptor(), offset, SEEK_SET) == static_cast<off_t>(-1)) {
-        err << tr("Failed to move file pointer to the end region");
-        err.flush();
-        qApp->exit(1);
-    }
-
-    // Overwrite last 128 blocks with zeroes
-    for (int i = 0; i < 128; i++) {
-        qint64 written = ::write(fd.fileDescriptor(), buffer, size);
-        if (written != size) {
-            err << tr("Destination drive is not writable");
-            err.flush();
-            qApp->exit(1);
-        }
+        return;
     }
 
     // Ensure data is flushed to disk
@@ -131,6 +128,7 @@ void RestoreJob::work()
         err << tr("Failed to sync data to disk");
         err.flush();
         qApp->exit(1);
+        return;
     }
 
     out << "55\n";
@@ -139,6 +137,8 @@ void RestoreJob::work()
     // Close the file descriptor before handing off to UDisks2 to avoid conflicts
     fd = QDBusUnixFileDescriptor();
 
+    // Formatting a large drive, or authorizing it, can outlast the default timeout.
+    device.setTimeout(DBUS_AUTH_TIMEOUT);
     QDBusReply<void> formatReply = device.call("Format", "gpt", Properties());
     if (!formatReply.isValid() && formatReply.error().type() != QDBusError::NoReply) {
         err << formatReply.error().message() << "\n";
@@ -151,6 +151,7 @@ void RestoreJob::work()
     out.flush();
 
     QDBusInterface partitionTable("org.freedesktop.UDisks2", where, "org.freedesktop.UDisks2.PartitionTable", QDBusConnection::systemBus(), this);
+    partitionTable.setTimeout(DBUS_AUTH_TIMEOUT);
     QDBusReply<QDBusObjectPath> partitionReply = partitionTable.call("CreatePartition", 1ULL, 0ULL, "", "", Properties());
     if (!partitionReply.isValid()) {
         err << partitionReply.error().message();
@@ -160,6 +161,7 @@ void RestoreJob::work()
     }
     QString partitionPath = partitionReply.value().path();
     QDBusInterface partition("org.freedesktop.UDisks2", partitionPath, "org.freedesktop.UDisks2.Block", QDBusConnection::systemBus(), this);
+    partition.setTimeout(DBUS_AUTH_TIMEOUT);
     QDBusReply<void> formatPartitionReply = partition.call("Format", "exfat", Properties{{"update-partition-type", true}});
     if (!formatPartitionReply.isValid() && formatPartitionReply.error().type() != QDBusError::NoReply) {
         err << formatPartitionReply.error().message() << "\n";

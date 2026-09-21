@@ -26,6 +26,8 @@
 #include <QTimer>
 #include <QtGlobal>
 
+#include <cstring>
+
 #include <lzma.h>
 
 #include "isomd5/libcheckisomd5.h"
@@ -50,8 +52,30 @@ int WriteJob::onMediaCheckAdvanced(long long offset, long long total)
     return 0;
 }
 
+// The device is opened with O_DIRECT, which rejects a write whose length is not
+// a multiple of the logical block size. ISO images always are, but a raw image
+// may end mid-block, so the tail is padded with zeroes up to a 4 KiB boundary.
+// Only the real bytes count towards the read-back hash.
+bool WriteJob::writeBlock(int fd, char *buffer, qint64 len)
+{
+    static const qint64 alignment = 4096;
+    qint64 padded = len;
+    if (len % alignment != 0) {
+        padded = (len / alignment + 1) * alignment;
+        memset(buffer + len, 0, padded - len);
+    }
+    qint64 written = ::write(fd, buffer, padded);
+    if (written != padded)
+        return false;
+    m_writtenHash.addData(QByteArrayView(buffer, len));
+    m_written += len;
+    return true;
+}
+
 bool WriteJob::write(int fd)
 {
+    m_writtenHash.reset();
+    m_written = 0;
     if (what.endsWith(".xz"))
         return writeCompressed(fd);
     else
@@ -105,8 +129,7 @@ bool WriteJob::writeCompressed(int fd)
 
         ret = lzma_code(&strm, strm.avail_in == 0 ? LZMA_FINISH : LZMA_RUN);
         if (ret == LZMA_STREAM_END) {
-            quint64 len = ::write(fd, outBuffer, bufferSize - strm.avail_out);
-            if (len != bufferSize - strm.avail_out) {
+            if (!writeBlock(fd, outBuffer, bufferSize - strm.avail_out)) {
                 err << tr("Destination drive is not writable");
                 qApp->exit(3);
                 return false;
@@ -135,8 +158,7 @@ bool WriteJob::writeCompressed(int fd)
         }
 
         if (strm.avail_out == 0) {
-            quint64 len = ::write(fd, outBuffer, bufferSize - strm.avail_out);
-            if (len != bufferSize - strm.avail_out) {
+            if (!writeBlock(fd, outBuffer, bufferSize - strm.avail_out)) {
                 err << tr("Destination drive is not writable");
                 qApp->exit(3);
                 return false;
@@ -171,8 +193,7 @@ bool WriteJob::writePlain(int fd)
             qApp->exit(3);
             return false;
         }
-        qint64 written = ::write(fd, buffer, len);
-        if (written != len) {
+        if (!writeBlock(fd, buffer, len)) {
             err << tr("Destination drive is not writable");
             err.flush();
             qApp->exit(3);
@@ -195,6 +216,21 @@ bool WriteJob::check(int fd)
     out.flush();
     switch (mediaCheckFD(fd, &WriteJob::staticOnMediaCheckAdvanced, this)) {
     case ISOMD5SUM_CHECK_NOT_FOUND:
+        // Only Fedora images carry an implanted MD5. For everything else
+        // (Omarchy, Arch, custom images) read the drive back and compare it
+        // with what was written, instead of skipping verification.
+        if (!verifyReadback(fd)) {
+            err << tr("Your drive is probably damaged.") << "\n";
+            err.flush();
+            qApp->exit(1);
+            return false;
+        }
+        out << "DONE\n";
+        out.flush();
+        err << "OK\n";
+        err.flush();
+        qApp->exit(0);
+        return false;
     case ISOMD5SUM_CHECK_PASSED:
         out << "DONE\n";
         out.flush();
@@ -214,6 +250,37 @@ bool WriteJob::check(int fd)
         return false;
     }
     return true;
+}
+
+bool WriteJob::verifyReadback(int fd)
+{
+    if (m_written <= 0)
+        return false;
+    if (lseek(fd, 0, SEEK_SET) == static_cast<off_t>(-1))
+        return false;
+
+    auto bufferOwner = pageAlignedBuffer();
+    char *buffer = std::get<1>(bufferOwner);
+    const qint64 size = std::get<2>(bufferOwner);
+
+    QCryptographicHash readHash(QCryptographicHash::Sha256);
+    qint64 remaining = m_written;
+    qint64 done = 0;
+    while (remaining > 0) {
+        // O_DIRECT reads must be block sized; the drive is larger than the
+        // image, so reading past its end is fine and the excess is ignored.
+        const qint64 len = ::read(fd, buffer, size);
+        if (len <= 0)
+            return false;
+        const qint64 used = qMin(len, remaining);
+        readHash.addData(QByteArrayView(buffer, used));
+        remaining -= used;
+        done += used;
+        out << done << "\n";
+        out.flush();
+    }
+
+    return readHash.result() == m_writtenHash.result();
 }
 
 void WriteJob::work()

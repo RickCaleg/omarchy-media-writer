@@ -198,6 +198,8 @@ bool WriteJob::write(HANDLE &driveHandle, HANDLE &logicalHandle)
         }
     }
 
+    m_writtenHash.reset();
+    m_written = 0;
     if (m_image.endsWith(".xz")) {
         return writeCompressed(driveHandle);
     } else {
@@ -280,6 +282,8 @@ bool WriteJob::writeCompressed(HANDLE driveHandle)
         if (ret == LZMA_STREAM_END) {
             qint64 writtenBytes = 0;
             qint64 readBytes = blockSize - strm.avail_out;
+            m_writtenHash.addData(QByteArrayView(reinterpret_cast<char *>(outBuffer), readBytes));
+            m_written += readBytes;
             readBytes = ((readBytes + sectorSize - 1) / sectorSize) * sectorSize;
             // ALT: Qt for writing
             // writtenBytes = drive.write(reinterpret_cast<char *>(outBuffer), readBytes);
@@ -326,7 +330,11 @@ bool WriteJob::writeCompressed(HANDLE driveHandle)
             qint64 writtenBytes = 0;
             // ALT: Qt for writing
             // writtenBytes = drive.write(reinterpret_cast<char *>(outBuffer), sectorSize);
-            writtenBytes = m_diskManagement->writeFileWithRetry(driveHandle, reinterpret_cast<char *>(outBuffer), sectorSize, 3);
+            // The whole buffer is full here; upstream wrote only its first
+            // sector, dropping the rest of every block of an .xz image.
+            m_writtenHash.addData(QByteArrayView(reinterpret_cast<char *>(outBuffer), blockSize));
+            m_written += blockSize;
+            writtenBytes = m_diskManagement->writeFileWithRetry(driveHandle, reinterpret_cast<char *>(outBuffer), blockSize, 3);
             if (writtenBytes <= 0) {
                 m_diskManagement->logMessage(QtCriticalMsg, QStringLiteral("Destination drive is not writable: %1").arg(getLastError()));
                 m_err << tr("Destination drive is not writable") << ": " << getLastError() << "\n";
@@ -335,7 +343,7 @@ bool WriteJob::writeCompressed(HANDLE driveHandle)
                 return false;
             }
 
-            if (writtenBytes != sectorSize) {
+            if (writtenBytes != blockSize) {
                 m_err << tr("The last block was not fully written") << "\n";
                 m_err.flush();
                 qApp->exit(1);
@@ -441,6 +449,8 @@ bool WriteJob::writePlain(HANDLE driveHandle)
         osWrite.Offset = static_cast<DWORD>(newOffset & 0xFFFFFFFF);
         osWrite.OffsetHigh = static_cast<DWORD>(newOffset >> 32);
 
+        m_writtenHash.addData(QByteArrayView(buffer, readBytes));
+        m_written += readBytes;
         totalBytes += readBytes;
         m_out << totalBytes << "\n";
         m_out.flush();
@@ -485,6 +495,20 @@ bool WriteJob::check(HANDLE driveHandle)
 
     switch (mediaCheckFD(_open_osfhandle(reinterpret_cast<intptr_t>(driveHandle), 0), &WriteJob::staticOnMediaCheckAdvanced, this)) {
     case ISOMD5SUM_CHECK_NOT_FOUND:
+        // Only Fedora images carry an implanted MD5; the Omarchy ISO does not,
+        // so read the drive back and compare it with what was written.
+        if (!verifyReadback(driveHandle)) {
+            m_diskManagement->logMessage(QtCriticalMsg, QStringLiteral("Read-back check failed"));
+            m_err << tr("Your drive is probably damaged.") << "\n";
+            m_err.flush();
+            return false;
+        }
+        m_diskManagement->logMessage(QtCriticalMsg, QStringLiteral("Read-back check passed"));
+        m_out << "DONE\n";
+        m_out.flush();
+        m_err << "OK\n";
+        m_err.flush();
+        return true;
     case ISOMD5SUM_CHECK_PASSED:
         m_diskManagement->logMessage(QtCriticalMsg, QStringLiteral("Check passed"));
         m_out << "DONE\n";
@@ -505,4 +529,35 @@ bool WriteJob::check(HANDLE driveHandle)
     }
 
     return true;
+}
+
+bool WriteJob::verifyReadback(HANDLE driveHandle)
+{
+    if (m_written <= 0)
+        return false;
+
+    LARGE_INTEGER zero = {};
+    if (!SetFilePointerEx(driveHandle, zero, NULL, FILE_BEGIN))
+        return false;
+
+    // Raw disk reads must be whole sectors; the drive is larger than the
+    // image, so the tail of the last block is simply not hashed.
+    const qint64 blockSize = m_disk->sectorSize() * 128;
+    QByteArray buffer(blockSize, Qt::Uninitialized);
+    QCryptographicHash readHash(QCryptographicHash::Sha256);
+    qint64 remaining = m_written;
+    qint64 done = 0;
+    while (remaining > 0) {
+        DWORD read = 0;
+        if (!ReadFile(driveHandle, buffer.data(), static_cast<DWORD>(blockSize), &read, NULL) || read == 0)
+            return false;
+        const qint64 used = qMin<qint64>(read, remaining);
+        readHash.addData(QByteArrayView(buffer.constData(), used));
+        remaining -= used;
+        done += used;
+        m_out << done << "\n";
+        m_out.flush();
+    }
+
+    return readHash.result() == m_writtenHash.result();
 }

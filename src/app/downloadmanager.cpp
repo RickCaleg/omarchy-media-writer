@@ -46,7 +46,7 @@ QString DownloadManager::dir()
 
 QString DownloadManager::userAgent()
 {
-    QString ret = QString("FedoraMediaWriter/%1 (").arg(MEDIAWRITER_VERSION);
+    QString ret = QString("OmarchyMediaWriter/%1 (").arg(MEDIAWRITER_VERSION);
     ret.append(QString("%1").arg(QSysInfo::prettyProductName().replace(QRegularExpression("[()]"), "")));
     ret.append(QString("; %1").arg(QSysInfo::buildAbi()));
     ret.append(QString("; %1").arg(QLocale(QLocale().language()).name()));
@@ -84,7 +84,15 @@ QString DownloadManager::downloadFile(DownloadReceiver *receiver, const QUrl &ur
     connect(m_current, &QObject::destroyed, [&]() {
         m_current = nullptr;
     });
-    fetchPageAsync(this, "https://mirrors.fedoraproject.org/mirrorlist?path=" + url.path());
+    if (url.host().endsWith("fedoraproject.org")) {
+        fetchPageAsync(this, "https://mirrors.fedoraproject.org/mirrorlist?path=" + url.path());
+    } else {
+        // The Omarchy ISO comes from a CDN with no mirror list: go straight to
+        // the URL once the Download has opened (or hashed) its .part file.
+        QTimer::singleShot(0, this, [this]() {
+            onStringDownloaded(QString());
+        });
+    }
 
     return bareFileName + ".part";
 }
@@ -180,6 +188,9 @@ void DownloadManager::onStringDownloaded(const QString &text)
 void DownloadManager::onDownloadError(const QString &message)
 {
     mWarning() << "Unable to get the mirror list:" << message;
+
+    if (!m_current || !m_current->hasCatchedUp())
+        return;
 
     if (m_mirrorCache.isEmpty()) {
         m_current->handleNewReply(nullptr);
@@ -349,8 +360,11 @@ void Download::onReadyRead()
 void Download::onError(QNetworkReply::NetworkError code)
 {
     mWarning() << "Error" << code << "reading from" << m_reply->url() << ":" << m_reply->errorString();
-    if (m_path.isEmpty())
+    if (m_path.isEmpty()) {
+        // A failed page fetch must reach its receiver, or it waits forever.
+        m_receiver->onDownloadError(m_reply->errorString());
         return;
+    }
 
     QNetworkReply *reply = manager()->tryAnotherMirror();
     if (reply)

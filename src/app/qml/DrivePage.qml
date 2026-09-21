@@ -163,23 +163,18 @@ Page {
         return qsTr("Download && Write")
     }
 
-    onPreviousButtonClicked: {
-        if (selectedOption == Units.MainSelect.Write)
-            selectedPage = Units.Page.MainPage
-        else {
-            selectedPage = Units.Page.VersionPage
-            stackView.pop()
-        }
-    }
+    onPreviousButtonClicked: selectedPage = Units.Page.MainPage
 
     onNextButtonClicked: {
-        if (selectedOption != Units.MainSelect.Write)
-            releases.variant.download()
-
         if (!drives.length) {
+            if (selectedOption != Units.MainSelect.Write)
+                releases.variant.download()
             selectedPage = Units.Page.DownloadPage
             return;
         }
+
+        // The download starts once the erase is confirmed, so cancelling the
+        // dialog does not leave a multi-gigabyte download running.
 
         deviceWarningDialog.open();
     }

@@ -32,6 +32,9 @@
 #include <memory>
 #include <tuple>
 
+// How long a D-Bus call that may need the user to authenticate can wait.
+constexpr int DBUS_AUTH_TIMEOUT = 5 * 60 * 1000;
+
 typedef QHash<QString, QVariant> Properties;
 typedef QHash<QString, Properties> InterfacesAndProperties;
 typedef QHash<QDBusObjectPath, InterfacesAndProperties> DBusIntrospection;

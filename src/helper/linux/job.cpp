@@ -69,6 +69,10 @@ QDBusUnixFileDescriptor Job::getDescriptor()
         return QDBusUnixFileDescriptor(-1);
     }
 
+    // OpenDevice waits on the polkit agent (the Omarchy shell's password
+    // dialog). The default 25 s D-Bus timeout cancels that dialog if the user
+    // takes longer to type, so allow the call as long as authorization takes.
+    device.setTimeout(DBUS_AUTH_TIMEOUT);
     QDBusReply<QDBusUnixFileDescriptor> reply = device.call(QDBus::Block, "OpenDevice", "rw", Properties{{"flags", O_DIRECT | O_SYNC | O_CLOEXEC}});
     QDBusUnixFileDescriptor fd = reply.value();
 

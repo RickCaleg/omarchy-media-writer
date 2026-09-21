@@ -23,6 +23,7 @@
 
 #include <libwindisk/windisk.h>
 
+#include <QCryptographicHash>
 #include <QFileSystemWatcher>
 #include <QObject>
 #include <QTextStream>
@@ -45,6 +46,7 @@ public:
 
 private:
     bool check(HANDLE driveHandle);
+    bool verifyReadback(HANDLE driveHandle);
     bool write(HANDLE &driveHandle, HANDLE &logicalHandle);
     bool writeCompressed(HANDLE driveHandle);
     bool writePlain(HANDLE driveHandle);
@@ -62,6 +64,10 @@ private:
     QTextStream m_err{stderr};
 
     QFileSystemWatcher m_watcher;
+
+    // What went onto the drive (after decompression), for the read-back check.
+    QCryptographicHash m_writtenHash{QCryptographicHash::Sha256};
+    qint64 m_written{0};
 };
 
 #endif // WRITEJOB_H

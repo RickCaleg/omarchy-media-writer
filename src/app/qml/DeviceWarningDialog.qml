@@ -61,6 +61,8 @@ ModalDialog {
                 id: continueButton
                 onClicked: {
                     deviceWarningDialog.close()
+                    if (selectedOption != Units.MainSelect.Write)
+                        releases.variant.download()
                     selectedPage = Units.Page.DownloadPage
                     if (drives.selected) {
                         drives.selected.setImage(releases.variant)

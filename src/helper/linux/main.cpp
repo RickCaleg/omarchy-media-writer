@@ -25,8 +25,20 @@
 #include "restorejob.h"
 #include "writejob.h"
 
+#include <csignal>
+#include <sys/prctl.h>
+#include <unistd.h>
+
 int main(int argc, char *argv[])
 {
+    // Die with the app. Without this a helper whose app was killed keeps
+    // waiting for the download to finish and then writes the drive on its own,
+    // possibly alongside the helper of a new app instance.
+    const pid_t parent = getppid();
+    prctl(PR_SET_PDEATHSIG, SIGTERM);
+    if (getppid() != parent)
+        return 1;
+
     QCoreApplication app(argc, argv);
 
     QTranslator translator;
