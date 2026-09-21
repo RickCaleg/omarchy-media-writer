@@ -26,6 +26,8 @@
 
 #include <QDateTime>
 
+#include <functional>
+
 #include "downloadmanager.h"
 
 class ReleaseManager;
@@ -34,6 +36,38 @@ class Release;
 class ReleaseVersion;
 class ReleaseVariant;
 class ReleaseArchitecture;
+class QNetworkAccessManager;
+
+/**
+ * @brief The FeedReceiver class
+ *
+ * Adapts one metadata download (the omarchy.org page, an ISO's .sha256) to
+ * the DownloadReceiver interface.
+ */
+class FeedReceiver : public QObject, public DownloadReceiver
+{
+    Q_OBJECT
+public:
+    using TextHandler = std::function<void(const QString &)>;
+    FeedReceiver(QObject *parent, TextHandler onText, TextHandler onError)
+        : QObject(parent)
+        , m_onText(std::move(onText))
+        , m_onError(std::move(onError))
+    {
+    }
+    void onStringDownloaded(const QString &text) override
+    {
+        m_onText(text);
+    }
+    void onDownloadError(const QString &message) override
+    {
+        m_onError(message);
+    }
+
+private:
+    TextHandler m_onText;
+    TextHandler m_onError;
+};
 
 /*
  * Architecture - singleton (x86, x86_64, etc)
@@ -108,8 +142,10 @@ public:
     Q_INVOKABLE void selectLocalFile(const QString &path = QString());
     ReleaseVariant *localFile() const;
 
-    bool
-    updateUrl(const QString &release, int version, const QString &status, const QString &type, const QString &category, const QDateTime &releaseDate, const QString &architecture, const QString &url, const QString &sha256, int64_t size);
+    bool updateUrl(const QString &release,
+                   int version,
+                   const QString &versionLabel,
+                   const QString &status, const QString &type, const QString &category, const QDateTime &releaseDate, const QString &architecture, const QString &url, const QString &sha256, int64_t size);
 
     QStringList architectures() const;
     int filterArchitecture() const;
@@ -132,6 +168,7 @@ public:
 
 public Q_SLOTS:
     void fetchReleases();
+    void fetchOmarchy();
     void variantChangedFilter();
 
 Q_SIGNALS:
@@ -146,6 +183,11 @@ Q_SIGNALS:
     void localFileChanged();
 
 private:
+    void onOmarchyPage(const QString &html);
+    void onOmarchyChecksum(const QString &version, const QString &url, const QString &text);
+    void refilter();
+
+    QNetworkAccessManager *m_network{nullptr};
     ReleaseListModel *m_sourceModel{nullptr};
     bool m_frontPage{true};
     QString m_filterText{};
@@ -231,7 +273,8 @@ public:
 
     Release(ReleaseManager *parent, int index, const QString &name, const QString &summary, const QStringList &description, const QString &subvariant, Release::Source source, const QString &icon, const QStringList &screenshots);
     void setLocalFile(const QString &path);
-    bool updateUrl(int version, const QString &status, const QString &type, const QDateTime &releaseDate, const QString &architecture, const QString &url, const QString &sha256, int64_t size);
+    bool updateUrl(int version, const QString &versionLabel, const QString &status, const QString &type, const QDateTime &releaseDate, const QString &architecture, const QString &url, const QString &sha256, int64_t size);
+    void keepOnlyVersion(int version);
     ReleaseManager *manager();
 
     int index() const;
@@ -303,7 +346,7 @@ public:
 
     Q_ENUMS(Status)
 
-    ReleaseVersion(Release *parent, int number, ReleaseVersion::Status status = FINAL, QDateTime releaseDate = QDateTime());
+    ReleaseVersion(Release *parent, int number, ReleaseVersion::Status status = FINAL, QDateTime releaseDate = QDateTime(), const QString &label = QString());
     ReleaseVersion(Release *parent, const QString &file, int64_t size);
     Release *release();
     const Release *release() const;
@@ -330,6 +373,7 @@ Q_SIGNALS:
 
 private:
     int m_number{0};
+    QString m_label{};
     ReleaseVersion::Status m_status{FINAL};
     QDateTime m_releaseDate{};
     QList<ReleaseVariant *> m_variants{};

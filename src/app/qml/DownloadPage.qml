@@ -27,7 +27,7 @@ Page {
 
     property int availableDrives: drives.length
     property int currentStatus: releases.variant.status
-    property string file: mainWindow.selectedOption == Units.MainSelect.Write ? (String)(releases.localFile.iso).split("/").slice(-1)[0] : releases.selected.name + " " + releases.selected.version.number
+    property string file: mainWindow.selectedOption == Units.MainSelect.Write ? (String)(releases.localFile.iso).split("/").slice(-1)[0] : releases.selected.name + " " + releases.selected.version.name
 
     imageSource: "qrc:/downloadPageImage"
     layoutSpacing: units.gridUnit
@@ -130,7 +130,7 @@ Page {
             id: messageRestore
             visible: currentStatus === Units.DownloadStatus.Write_Verifying ||
                      currentStatus === Units.DownloadStatus.Writing
-            text: qsTr("Your drive is being resized to a smaller capacity. You may resize it back to normal by running Fedora Media Writer again and selecting the Restore option.")
+            text: qsTr("Your drive is being resized to a smaller capacity. You may resize it back to normal by running Omarchy Media Writer again and selecting the Restore option.")
             width: infoColumn.width
             wrapMode: QQC2.Label.Wrap
         }
@@ -146,7 +146,7 @@ Page {
         QQC2.Label {
             id: messageArmBoard
             visible: false //boardCombo.otherSelected
-            text: qsTr("Your board or device is not supported by Fedora Media Writer yet. Please check <a href=%1>this page</a> for more information about its compatibility with Fedora and how to create bootable media for it.").arg("https://fedoraproject.org/wiki/Architectures/ARM")
+            text: qsTr("Your board or device is not supported by Omarchy Media Writer yet. Please check <a href=%1>this page</a> for more information about its compatibility with Fedora and how to create bootable media for it.").arg("https://fedoraproject.org/wiki/Architectures/ARM")
             width: infoColumn.width
             wrapMode: QQC2.Label.Wrap
         }

@@ -72,7 +72,10 @@ Page {
             selectedPage = Units.Page.DrivePage
         } else if (selectedOption == Units.MainSelect.Restore)
             selectedPage = Units.Page.RestorePage
-        else
-            selectedPage = Units.Page.VersionPage
+        else {
+            // Omarchy is the only release, so there is no edition to pick.
+            releases.selectedIndex = 0
+            selectedPage = Units.Page.DrivePage
+        }
     }
 }

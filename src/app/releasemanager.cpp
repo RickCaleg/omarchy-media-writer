@@ -27,6 +27,9 @@
 #include <QtQml>
 
 #include <QJsonDocument>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QVersionNumber>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -43,14 +46,100 @@ ReleaseManager::ReleaseManager(QObject *parent)
     qmlRegisterUncreatableType<ReleaseArchitecture>("MediaWriter", 1, 0, "Architecture", "");
     qmlRegisterUncreatableType<Progress>("MediaWriter", 1, 0, "Progress", "");
 
-    QFile releases(":/releases.json");
-    if (releases.open(QIODevice::ReadOnly)) {
-        onStringDownloaded(releases.readAll());
-        releases.close();
+    connect(this, SIGNAL(selectedChanged()), this, SLOT(variantChangedFilter()));
+    QTimer::singleShot(0, this, SLOT(fetchOmarchy()));
+}
+
+// The Omarchy ISO is announced on omarchy.org rather than in a releases.json:
+// the page links https://iso.omarchy.org/omarchy-X.Y.Z.iso next to its .sha256.
+void ReleaseManager::fetchOmarchy()
+{
+    m_beingUpdated = true;
+    Q_EMIT beingUpdatedChanged();
+
+    auto receiver = new FeedReceiver(
+        this,
+        [this](const QString &html) {
+            onOmarchyPage(html);
+        },
+        [this](const QString &message) {
+            onDownloadError(message);
+        });
+    DownloadManager::instance()->fetchPageAsync(receiver, options.releasesUrl);
+}
+
+void ReleaseManager::onOmarchyPage(const QString &html)
+{
+    static const QRegularExpression isoRE("https://iso\\.omarchy\\.org/omarchy-(\\d+(?:\\.\\d+)*)\\.iso(?![.\\w])");
+    QVersionNumber best;
+    QString bestUrl;
+    auto it = isoRE.globalMatch(html);
+    while (it.hasNext()) {
+        const auto match = it.next();
+        const QVersionNumber version = QVersionNumber::fromString(match.captured(1));
+        if (version > best) {
+            best = version;
+            bestUrl = match.captured(0);
+        }
+    }
+    if (bestUrl.isEmpty()) {
+        onDownloadError("omarchy.org did not link an ISO");
+        return;
     }
 
-    connect(this, SIGNAL(selectedChanged()), this, SLOT(variantChangedFilter()));
-    QTimer::singleShot(0, this, SLOT(fetchReleases()));
+    const QString version = best.toString();
+    auto receiver = new FeedReceiver(
+        this,
+        [this, version, bestUrl](const QString &text) {
+            onOmarchyChecksum(version, bestUrl, text);
+        },
+        [this](const QString &message) {
+            onDownloadError(message);
+        });
+    DownloadManager::instance()->fetchPageAsync(receiver, bestUrl + ".sha256");
+}
+
+void ReleaseManager::onOmarchyChecksum(const QString &version, const QString &url, const QString &text)
+{
+    static const QRegularExpression shaRE("^\\s*([0-9a-fA-F]{64})\\b");
+    const auto match = shaRE.match(text);
+    if (!match.hasMatch()) {
+        // Never offer an image that cannot be verified.
+        onDownloadError("Unexpected Omarchy checksum file");
+        return;
+    }
+
+    // The model compares versions as integers: 4.0.4 -> 4000004.
+    const QVersionNumber parsed = QVersionNumber::fromString(version);
+    const int number = parsed.majorVersion() * 1000000 + parsed.minorVersion() * 1000 + parsed.microVersion();
+    updateUrl("omarchy", number, version, QString(), "live", QString(), QDateTime(), "x86_64", url, match.captured(1).toLower(), 0);
+    for (int i = 0; i < m_sourceModel->rowCount(); i++)
+        get(i)->keepOnlyVersion(number);
+    refilter();
+
+    // The page gives no size; ask the CDN, so a too small drive is caught.
+    if (!m_network)
+        m_network = new QNetworkAccessManager(this);
+    QNetworkRequest request{QUrl(url)};
+    request.setHeader(QNetworkRequest::UserAgentHeader, DownloadManager::userAgent());
+    QNetworkReply *reply = m_network->head(request);
+    connect(reply, &QNetworkReply::finished, this, [this, reply, number, version, url]() {
+        reply->deleteLater();
+        const qint64 size = reply->header(QNetworkRequest::ContentLengthHeader).toLongLong();
+        if (reply->error() == QNetworkReply::NoError && size > 0)
+            updateUrl("omarchy", number, version, QString(), "live", QString(), QDateTime(), "x86_64", url, QString(), size);
+        m_beingUpdated = false;
+        Q_EMIT beingUpdatedChanged();
+    });
+}
+
+// Whether a release is listed depends on it having a variant, so the filter
+// has to run again when the release arrives after startup.
+void ReleaseManager::refilter()
+{
+    beginFilterChange();
+    endFilterChange();
+    Q_EMIT firstSourceChanged();
 }
 
 bool ReleaseManager::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
@@ -184,6 +273,7 @@ ReleaseVariant *ReleaseManager::localFile() const
 
 bool ReleaseManager::updateUrl(const QString &release,
                                int version,
+                               const QString &versionLabel,
                                const QString &status,
                                const QString &type,
                                const QString &category,
@@ -202,7 +292,7 @@ bool ReleaseManager::updateUrl(const QString &release,
     for (int i = 0; i < m_sourceModel->rowCount(); i++) {
         Release *r = get(i);
         if (r->subvariant().toLower() == release || r->subvariant().toLower() == category) {
-            return r->updateUrl(version, status, type, releaseDate, architecture, url, sha256, size);
+            return r->updateUrl(version, versionLabel, status, type, releaseDate, architecture, url, sha256, size);
         }
     }
 
@@ -215,7 +305,7 @@ bool ReleaseManager::updateUrl(const QString &release,
                 if (r->source() == Release::EMERGING && (category != "sericea"_L1 && category != "onyx"_L1 && category != "cosmic-atomic"_L1))
                     continue;
             }
-            return r->updateUrl(version, status, type, releaseDate, architecture, url, sha256, size);
+            return r->updateUrl(version, versionLabel, status, type, releaseDate, architecture, url, sha256, size);
         }
     }
     return false;
@@ -329,7 +419,7 @@ void ReleaseManager::onStringDownloaded(const QString &text)
         mDebug() << this->metaObject()->className() << "Adding" << release << versionWithStatus << arch;
 
         if (!release.isEmpty() && !url.isEmpty() && !arch.isEmpty())
-            updateUrl(release, version, status, type, category, releaseDate, arch, url, sha256, size);
+            updateUrl(release, version, QString(), status, type, category, releaseDate, arch, url, sha256, size);
     }
 
     m_beingUpdated = false;
@@ -340,7 +430,7 @@ void ReleaseManager::onDownloadError(const QString &message)
 {
     mWarning() << "Was not able to fetch new releases:" << message << "Retrying in 10 seconds.";
 
-    QTimer::singleShot(10000, this, SLOT(fetchReleases()));
+    QTimer::singleShot(10000, this, SLOT(fetchOmarchy()));
 }
 
 QStringList ReleaseManager::architectures() const
@@ -512,7 +602,7 @@ void Release::setLocalFile(const QString &path)
     Q_EMIT selectedVersionChanged();
 }
 
-bool Release::updateUrl(int version, const QString &status, const QString &type, const QDateTime &releaseDate, const QString &architecture, const QString &url, const QString &sha256, int64_t size)
+bool Release::updateUrl(int version, const QString &versionLabel, const QString &status, const QString &type, const QDateTime &releaseDate, const QString &architecture, const QString &url, const QString &sha256, int64_t size)
 {
     int finalVersions = 0;
     for (auto i : m_versions) {
@@ -522,7 +612,7 @@ bool Release::updateUrl(int version, const QString &status, const QString &type,
             finalVersions++;
     }
     ReleaseVersion::Status s = status == "alpha" ? ReleaseVersion::ALPHA : status == "beta" ? ReleaseVersion::BETA : ReleaseVersion::FINAL;
-    auto ver = new ReleaseVersion(this, version, s, releaseDate);
+    auto ver = new ReleaseVersion(this, version, s, releaseDate, versionLabel);
     auto variant = new ReleaseVariant(ver, url, sha256, size, ReleaseArchitecture::fromAbbreviation(architecture));
     ver->addVariant(variant);
     addVersion(ver);
@@ -540,6 +630,17 @@ bool Release::updateUrl(int version, const QString &status, const QString &type,
         removeVersion(oldVer);
     }
     return true;
+}
+
+void Release::keepOnlyVersion(int version)
+{
+    if (m_source == LOCAL)
+        return;
+    const QList<ReleaseVersion *> versions = m_versions;
+    for (auto i : versions) {
+        if (i->number() != version)
+            removeVersion(i);
+    }
 }
 
 ReleaseManager *Release::manager()
@@ -672,9 +773,10 @@ void Release::setSelectedVersionIndex(int o)
     }
 }
 
-ReleaseVersion::ReleaseVersion(Release *parent, int number, ReleaseVersion::Status status, QDateTime releaseDate)
+ReleaseVersion::ReleaseVersion(Release *parent, int number, ReleaseVersion::Status status, QDateTime releaseDate, const QString &label)
     : QObject(parent)
     , m_number(number)
+    , m_label(label)
     , m_status(status)
     , m_releaseDate(releaseDate)
 {
@@ -743,15 +845,16 @@ int ReleaseVersion::number() const
 
 QString ReleaseVersion::name() const
 {
+    const QString number = m_label.isEmpty() ? QString::number(m_number) : m_label;
     switch (m_status) {
     case ALPHA:
-        return tr("%1 Alpha").arg(m_number);
+        return tr("%1 Alpha").arg(number);
     case BETA:
-        return tr("%1 Beta").arg(m_number);
+        return tr("%1 Beta").arg(number);
     case RELEASE_CANDIDATE:
-        return tr("%1 Release Candidate").arg(m_number);
+        return tr("%1 Release Candidate").arg(number);
     default:
-        return QString("%1").arg(m_number);
+        return number;
     }
 }
 

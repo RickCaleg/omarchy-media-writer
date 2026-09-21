@@ -82,8 +82,9 @@ public:
 #else
     bool logging{true};
 #endif
-    QString releasesUrl{"https://fedoraproject.org/releases.json"};
-    bool noUserAgent{false}; // disables sending the custom Fedora Media Writer user agent header
+    // The Omarchy website, which links the current ISO and its checksum.
+    QString releasesUrl{"https://omarchy.org/"};
+    bool noUserAgent{false}; // disables sending the custom Omarchy Media Writer user agent header
 };
 
 class MessageHandler
