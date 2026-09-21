@@ -37,6 +37,11 @@ if (NOT APPLE)
     add_executable(mediawriter ${MEDIAWRITER_SRCS})
 endif()
 
+if (UNIX AND NOT APPLE)
+    # Not "mediawriter", which Fedora Media Writer's packages install.
+    set_target_properties(mediawriter PROPERTIES OUTPUT_NAME omarchy-media-writer)
+endif()
+
 if (WIN32)
     # NOTE: QProcess::start() can not start a new process with UAC level
     # requireAdministrator, since it is using CreateProcess. There is one
@@ -62,9 +67,9 @@ if (APPLE)
     set(ICON_PATH ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/mediawriter.icns)
     add_executable(mediawriter MACOSX_BUNDLE ${MEDIAWRITER_SRCS} ${ICON_PATH})
     set_target_properties(mediawriter PROPERTIES
-      OUTPUT_NAME FedoraMediaWriter
+      OUTPUT_NAME OmarchyMediaWriter
       MACOSX_BUNDLE TRUE
-      MACOSX_BUNDLE_BUNDLE_NAME FedoraMediaWriter
+      MACOSX_BUNDLE_BUNDLE_NAME OmarchyMediaWriter
       MACOSX_BUNDLE_BUNDLE_VERSION ${MEDIAWRITER_VERSION}
       MACOSX_BUNDLE_SHORT_VERSION_STRING ${MEDIAWRITER_VERSION}
       MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/data/Info.plist
@@ -103,6 +108,6 @@ install(TARGETS mediawriter
 
 if (UNIX AND NOT APPLE)
     install(DIRECTORY data/icons/hicolor/ DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/icons/hicolor)
-    install(FILES data/org.fedoraproject.MediaWriter.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/applications)
-    install(FILES data/org.fedoraproject.MediaWriter.metainfo.xml DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/metainfo)
+    install(FILES data/io.github.rickcaleg.OmarchyMediaWriter.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/applications)
+    install(FILES data/io.github.rickcaleg.OmarchyMediaWriter.metainfo.xml DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/metainfo)
 endif()

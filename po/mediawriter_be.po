@@ -27,8 +27,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "Пра Fedora Media Writer"
+msgid "About Omarchy Media Writer"
+msgstr "Пра Omarchy Media Writer"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -38,8 +38,8 @@ msgstr "Версія %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Fedora Media Writer правярае наяўнасць новых выпускаў"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Omarchy Media Writer правярае наяўнасць новых выпускаў"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -276,11 +276,11 @@ msgstr "Устаўце USB-дыск."
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 "Ёмістасць дыска будзе паменшана. Вярнуць звычайную ёмістасць можна з "
-"дапамогай Fedora Media Writer. У выніку праграма выдаліць з дыска "
+"дапамогай Omarchy Media Writer. У выніку праграма выдаліць з дыска "
 "ўсталявальны носьбіт."
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -297,12 +297,12 @@ msgstr "Няма"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"Fedora Media Writer пакуль не падтрымлівае вашу плату або прыладу. Каб "
-"даведацца больш пра сумяшчальнасць з Fedora і спосабы стварэння загрузачнага "
+"Omarchy Media Writer пакуль не падтрымлівае вашу плату або прыладу. Каб "
+"даведацца больш пра сумяшчальнасць з Omarchy і спосабы стварэння загрузачнага "
 "носьбіта, азнаёмцеся з інфармацыяй на <a href=%1>гэтай старонцы</a>."
 
 #: ../src/app/qml/DownloadPage.qml:160
@@ -842,10 +842,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">Пачакайце, пакуль Fedora Media Writer аднаўляе ваш "
+"<p align=\"justify\">Пачакайце, пакуль Omarchy Media Writer аднаўляе ваш "
 "пераносны дыск.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -879,8 +879,8 @@ msgstr "Аднавіць"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
-msgstr "Выберыце выпуск Fedora"
+msgid "Select Omarchy Release"
+msgstr "Выберыце выпуск Omarchy"
 
 #: ../src/app/qml/VersionPage.qml:32
 msgctxt "VersionPage|"
@@ -1045,13 +1045,13 @@ msgstr "Не ўдалося перайсці да пачатку дыска дл
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
-msgstr "Выбар версіі Fedora"
+msgid "Select Omarchy Version"
+msgstr "Выбар версіі Omarchy"
 
 #: ../src/app/qml/main.qml:113
 msgctxt "main|"
@@ -1067,8 +1067,8 @@ msgstr "Аднаўленне"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1079,28 +1079,28 @@ msgstr "Стварэнне носьбіта Live USB з Fedora"
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
 "Інструмент для стварэння загрузачных дыскаў Live USB з пэўным выпускам "
-"Fedora. Fedora Media Writer можа не толькі запісаць вобраз на флэш-"
+"Omarchy. Omarchy Media Writer можа не толькі запісаць вобраз на флэш-"
 "накапляльнік, але і спампаваць яго. Прапануюцца афіцыйныя выпускі (Server, "
-"Workstation), Fedora Spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon "
-"Desktop, ...) і Fedora Labs (Design Suite, Security Lab, ...). Падаюцца "
+"Workstation), Omarchy Spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon "
+"Desktop, ...) і Omarchy Labs (Design Suite, Security Lab, ...). Падаюцца "
 "асноўныя звесткі пра кожны з іх, каб дапамагчы зрабіць правільны выбар."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"Fedora Media Writer можа запісваць любыя загрузачныя вобразы ISO з "
+"Omarchy Media Writer можа запісваць любыя загрузачныя вобразы ISO з "
 "лакальнага дыска, але майце на ўвазе, што праграма правяралася толькі з "
-"вобразамі Fedora."
+"вобразамі Omarchy."
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1143,8 +1143,8 @@ msgid "media"
 msgstr "носьбіт"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "Запіс вобразаў Fedora на пераносныя дыскі"
+msgid "Write Omarchy images to your portable drives"
+msgstr "Запіс вобразаў Omarchy на пераносныя дыскі"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

@@ -4,12 +4,12 @@ if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET "13.0" CACHE STRING "Minimum OS X deployment version")
 endif()
 
-project(MediaWriter)
+project(OmarchyMediaWriter)
 
-set(MEDIAWRITER_MAJOR_VERSION "5")
-set(MEDIAWRITER_MINOR_VERSION "3")
+set(MEDIAWRITER_MAJOR_VERSION "1")
+set(MEDIAWRITER_MINOR_VERSION "0")
 # MICRO_VERSION >= 50 means a development version
-set(MEDIAWRITER_MICRO_VERSION "50")
+set(MEDIAWRITER_MICRO_VERSION "0")
 set(MEDIAWRITER_VERSION "${MEDIAWRITER_MAJOR_VERSION}.${MEDIAWRITER_MINOR_VERSION}.${MEDIAWRITER_MICRO_VERSION}")
 
 set(QT_MIN_VERSION "6.10.2")
@@ -34,7 +34,7 @@ endif()
 
 if (UNIX AND NOT APPLE)
     # FIXME: this is not ideal
-    add_definitions(-DLIBEXECDIR="${CMAKE_INSTALL_FULL_LIBEXECDIR}/mediawriter")
+    add_definitions(-DLIBEXECDIR="${CMAKE_INSTALL_FULL_LIBEXECDIR}/omarchy-media-writer")
 endif()
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED Core DBus Gui Network Svg Qml Quick QuickControls2 Widgets)

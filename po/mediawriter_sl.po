@@ -25,8 +25,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "O Fedora Media Writer"
+msgid "About Omarchy Media Writer"
+msgstr "O Omarchy Media Writer"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -36,8 +36,8 @@ msgstr "Verzija %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Fedora Media Writer zdaj preverja nove izdaje"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Omarchy Media Writer zdaj preverja nove izdaje"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -275,11 +275,11 @@ msgstr "Vstavite USB pogon."
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 "Vaš pogon bo spremenil velikost na manjšo vrednosti. Lahko ga nazaj povečate "
-"na normalno velikost z uporabo Fedora Media Writer. To pa bo odstranilo "
+"na normalno velikost z uporabo Omarchy Media Writer. To pa bo odstranilo "
 "medij namestitve iz vašega pogona."
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -296,11 +296,11 @@ msgstr "Nič"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"Vaša naprava še ni podprta z Fedora Media Writer. Preverite <a href=%1>to "
+"Vaša naprava še ni podprta z Omarchy Media Writer. Preverite <a href=%1>to "
 "stran</a> za več informacij o združljivosti s Fedoro in kako ustvariti "
 "zagonski medij na njej."
 
@@ -839,10 +839,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">Počakajte, da Fedora Media Writer obnovi vaš prenosni "
+"<p align=\"justify\">Počakajte, da Omarchy Media Writer obnovi vaš prenosni "
 "pogon.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -876,7 +876,7 @@ msgstr "Obnovi"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
+msgid "Select Omarchy Release"
 msgstr "Izberite izdajo Fedore"
 
 #: ../src/app/qml/VersionPage.qml:32
@@ -1042,12 +1042,12 @@ msgstr "Ni se bilo možno postaviti na začetek pogona za preverjanje"
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
+msgid "Select Omarchy Version"
 msgstr "Izberite verzijo Fedore"
 
 #: ../src/app/qml/main.qml:113
@@ -1064,8 +1064,8 @@ msgstr "Obnovi"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Zapisovalnik medijev Fedora"
+msgid "Omarchy Media Writer"
+msgstr "Zapisovalnik medijev Omarchy"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1076,28 +1076,28 @@ msgstr "Ustvari pogon Fedora live USB"
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
 "Orodje za ustvarjanje živega zagonskega pogona z izdajo Fedore. Ne samo, da "
-"lahko Fedora Media Writer napiše sliko na vaš pogon, ampak jo lahko tudi "
-"prenese za vas. Ponuja uradne izdaje (strežnik, delovna postaja), Fedora "
-"Spins (KDE Plasma Desktop, XFCE Desktop, Cinnamon Desktop, ...) in Fedora "
+"lahko Omarchy Media Writer napiše sliko na vaš pogon, ampak jo lahko tudi "
+"prenese za vas. Ponuja uradne izdaje (strežnik, delovna postaja), Omarchy "
+"Spins (KDE Plasma Desktop, XFCE Desktop, Cinnamon Desktop, ...) in Omarchy "
 "Labs (Design Suite, Security Lab, ...). Ponuja osnovne informacije o vsaki "
 "od njih, ki vam bodo pomagale pravilno izbirati."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"Fedora Media Writer lahko piše tudi druge naložene slike OS iz vašega "
+"Omarchy Media Writer lahko piše tudi druge naložene slike OS iz vašega "
 "lokalnega diska, a zavedajte se, da je bilo to preverjeno samo s slikami OS "
-"Fedora."
+"Omarchy."
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1140,7 +1140,7 @@ msgid "media"
 msgstr "mediji"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
+msgid "Write Omarchy images to your portable drives"
 msgstr "Pisanje slik Fedore na vaše prenosljive pogone"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98

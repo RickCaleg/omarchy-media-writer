@@ -130,7 +130,7 @@ int Options::parse(QStringList argv)
         MessageHandler::category.setEnabled(QtDebugMsg, true);
 
     if (options.logging) {
-        QString debugFileName = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/FedoraMediaWriter.log";
+        QString debugFileName = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/OmarchyMediaWriter.log";
         debugFile = fopen(debugFileName.toStdString().c_str(), "w");
         if (!debugFile) {
             debugFile = stderr;
@@ -184,4 +184,4 @@ void MessageHandler::install()
     qInstallMessageHandler(myMessageOutput); // Install the handler
 }
 
-QLoggingCategory MessageHandler::category{"org.fedoraproject.MediaWriter"};
+QLoggingCategory MessageHandler::category{"io.github.rickcaleg.OmarchyMediaWriter"};

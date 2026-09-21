@@ -1,10 +1,10 @@
-# Fedora Media Writer on macOS
+# Omarchy Media Writer on macOS
 
-![Fedora Media Writer on macOS](/dist/screenshots/mac_main.png)
+![Omarchy Media Writer on macOS](/dist/screenshots/mac_main.png)
 
 ## Running
 
-The process of running Fedora Media Writer on a Mac computer is the same as every other Mac application.
+The process of running Omarchy Media Writer on a Mac computer is the same as every other Mac application.
 
 ### System configuration
 
@@ -16,16 +16,16 @@ Oldest supported release is macOS 13.
 
 Download the .dmg file from the [Releases](../../releases) section of this page for the latest, then drag-and-drop it to the Applications folder open it from there. 
 The files downloaded from this page are not signed, which means you can get a prompt saying you won't be able to open them. In order to be able to
-run our pre-built binaries you have to run `xattr -d com.apple.quarantine FedoraMediaWriter-macos-x.x.x.dmg` to get rid of the warning about uknown source.
+run our pre-built binaries you have to run `xattr -d com.apple.quarantine OmarchyMediaWriter-macos-x.x.x.dmg` to get rid of the warning about uknown source.
 
 ### Known issues 
 
 There is a known issue in progress bar on macOS 26 in Qt 6.9.3.
-Fedora Media Writer issue: https://github.com/FedoraQt/MediaWriter/issues/897
+Omarchy Media Writer issue: https://github.com/RickCaleg/omarchy-media-writer/issues/897
 
 ## Building
 
-You can build Fedora Media Writer yourself. It has just a few dependencies and building it is a matter of just running a few commands.
+You can build Omarchy Media Writer yourself. It has just a few dependencies and building it is a matter of just running a few commands.
 
 ### Dependencies
 
@@ -33,7 +33,7 @@ You can build Fedora Media Writer yourself. It has just a few dependencies and b
 
 ### Steps
 
-You can use Qt Creator to build and work with the application. If not using that, the process is basically just these two commands you need to run inside the Fedora Media Writer source code directory:
+You can use Qt Creator to build and work with the application. If not using that, the process is basically just these two commands you need to run inside the Omarchy Media Writer source code directory:
 
 ```
 cmake

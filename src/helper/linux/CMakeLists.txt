@@ -23,4 +23,4 @@ target_link_libraries(helper
     ${LIBLZMA_LIBRARIES}
 )
 
-install(TARGETS helper DESTINATION ${CMAKE_INSTALL_FULL_LIBEXECDIR}/mediawriter)
+install(TARGETS helper DESTINATION ${CMAKE_INSTALL_FULL_LIBEXECDIR}/omarchy-media-writer)

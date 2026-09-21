@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-_Name=Fedora Media Writer
-_Comment=Write Fedora images to your portable drives
-Icon=org.fedoraproject.MediaWriter
-Exec=mediawriter
+_Name=Omarchy Media Writer
+_Comment=Write Omarchy images to your portable drives
+Icon=io.github.rickcaleg.OmarchyMediaWriter
+Exec=omarchy-media-writer
 Terminal=false
 Categories=System;
 Keywords=fmw;usb;iso;bootable;

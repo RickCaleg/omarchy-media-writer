@@ -23,8 +23,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "Σχετικά με το Fedora Media Writer"
+msgid "About Omarchy Media Writer"
+msgstr "Σχετικά με το Omarchy Media Writer"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -34,8 +34,8 @@ msgstr "Έκδοση %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Το Fedora Media Writer κάνει έλεγχο για νέες εκδόσεις"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Το Omarchy Media Writer κάνει έλεγχο για νέες εκδόσεις"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -274,11 +274,11 @@ msgstr "Εισαγάγετε μια μονάδα USB."
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 "Το μέγεθος της μονάδας σας θα αλλάξει σε μικρότερη χωρητικότητα. Μπορείτε να "
-"επαναφέρετε το κανονικό της μέγεθος με το Fedora Media Writer. Αυτή η "
+"επαναφέρετε το κανονικό της μέγεθος με το Omarchy Media Writer. Αυτή η "
 "διαδικασία θα καταργήσει το μέσο εγκατάστασης από τη μονάδα σας."
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -295,13 +295,13 @@ msgstr "Κανένα"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"Το Fedora Media Writer δεν υποστηρίζει ακόμα την πλακέτα ή τη μονάδα σας. "
+"Το Omarchy Media Writer δεν υποστηρίζει ακόμα την πλακέτα ή τη μονάδα σας. "
 "Δείτε <a href=%1>αυτήν τη σελίδα</a> για περισσότερες πληροφορίες σχετικά με "
-"τη συμβατότητά της με το Fedora και τον τρόπο δημιουργίας μέσων εκκίνησης."
+"τη συμβατότητά της με το Omarchy και τον τρόπο δημιουργίας μέσων εκκίνησης."
 
 #: ../src/app/qml/DownloadPage.qml:160
 #, qt-format
@@ -847,10 +847,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">Περιμένετε όσο το Fedora Media Writer επαναφέρει τη "
+"<p align=\"justify\">Περιμένετε όσο το Omarchy Media Writer επαναφέρει τη "
 "φορητή μονάδα σας.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -884,8 +884,8 @@ msgstr "Ανάκτηση"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
-msgstr "Επιλογή έκδοσης Fedora"
+msgid "Select Omarchy Release"
+msgstr "Επιλογή έκδοσης Omarchy"
 
 #: ../src/app/qml/VersionPage.qml:32
 msgctxt "VersionPage|"
@@ -1051,13 +1051,13 @@ msgstr "Δεν ήταν δυνατή η αναζήτηση στην αρχή τ�
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
-msgstr "Επιλογή έκδοσης Fedora"
+msgid "Select Omarchy Version"
+msgstr "Επιλογή έκδοσης Omarchy"
 
 #: ../src/app/qml/main.qml:113
 msgctxt "main|"
@@ -1073,8 +1073,8 @@ msgstr "Ανάκτηση"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1085,29 +1085,29 @@ msgstr "Δημιουργία μονάδας live USB για το Fedora"
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
 "Ένα εργαλείο για τη δημιουργία μιας live μονάδας USB με δυνατότητα εκκίνησης "
-"μιας έκδοσης του Fedora. Εκτός από την εγγραφή ενός ειδώλου στη μονάδα flash "
-"σας, το Fedora Media μπορεί να κάνει ακόμα και λήψη της για εσάς. Προσφέρει "
-"επίσημες εκδόσεις (Server, Workstation), παραλλαγές του Fedora (KDE Plasma "
-"Desktop, Xfce Desktop, Cinnamon Desktop κ.λπ.), καθώς και εκδόσεις Fedora "
+"μιας έκδοσης του Omarchy. Εκτός από την εγγραφή ενός ειδώλου στη μονάδα flash "
+"σας, το Omarchy Media μπορεί να κάνει ακόμα και λήψη της για εσάς. Προσφέρει "
+"επίσημες εκδόσεις (Server, Workstation), παραλλαγές του Omarchy (KDE Plasma "
+"Desktop, Xfce Desktop, Cinnamon Desktop κ.λπ.), καθώς και εκδόσεις Omarchy "
 "Labs (Design Suite, Security Lab κ.λπ.). Παρέχει βασικές πληροφορίες σχετικά "
 "με καθεμιά από αυτές για να σας βοηθήσει να κάνετε τη σωστή επιλογή."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"Το Fedora Media Writer μπορεί να επίσης να εγγράψει άλλα ISO με δυνατότητα "
+"Το Omarchy Media Writer μπορεί να επίσης να εγγράψει άλλα ISO με δυνατότητα "
 "εκκίνησης από τον τοπικό σας δίσκο, αλλά λάβετε υπόψη ότι οι δοκιμές "
-"γίνονται μόνο με είδωλα του Fedora."
+"γίνονται μόνο με είδωλα του Omarchy."
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1150,8 +1150,8 @@ msgid "media"
 msgstr "μέσο"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "Κάντε εγγραφή ειδώλων του Fedora στις φορητές μονάδες σας"
+msgid "Write Omarchy images to your portable drives"
+msgstr "Κάντε εγγραφή ειδώλων του Omarchy στις φορητές μονάδες σας"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

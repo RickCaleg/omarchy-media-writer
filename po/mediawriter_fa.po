@@ -18,8 +18,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "درباره Fedora Media Writer"
+msgid "About Omarchy Media Writer"
+msgstr "درباره Omarchy Media Writer"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -30,10 +30,10 @@ msgstr "نسخه %1"
 #: ../src/app/qml/AboutDialog.qml:64
 #, fuzzy
 #| msgctxt "ImageList|"
-#| msgid "Fedora Media Writer is now checking for new releases"
+#| msgid "Omarchy Media Writer is now checking for new releases"
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Fedora Media Writer در حال بررسی برای نسخه جدید تر است"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Omarchy Media Writer در حال بررسی برای نسخه جدید تر است"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, fuzzy, qt-format
@@ -287,11 +287,11 @@ msgstr ""
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 "درایو شما به ظرفیت کمتری تغییر اندازه پیدا خواهد کرد. این امکان را دارید که "
-"با استفاده از Fedora Media Writer آن را به حالت قبلی تغییر اندازه بدهید. این "
+"با استفاده از Omarchy Media Writer آن را به حالت قبلی تغییر اندازه بدهید. این "
 "کار رسانه نصب را از درایو شما حذف خواهد کرد."
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -308,11 +308,11 @@ msgstr "هیچ"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"بورد یا دستگاه شما هنوز توسط Fedora Media Writer پشتیبانی نمی شود. لطفا <a "
+"بورد یا دستگاه شما هنوز توسط Omarchy Media Writer پشتیبانی نمی شود. لطفا <a "
 "href=%1>این صفحه</a> را برای اطلاعات بیشتر درباره سازگاری آن با فدورا و نحوه "
 "ایجاد یک مدیا قابل بوت برای آن بررسی کنید."
 
@@ -891,7 +891,7 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
 
@@ -930,7 +930,7 @@ msgstr "بازیابی"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
+msgid "Select Omarchy Release"
 msgstr ""
 
 #: ../src/app/qml/VersionPage.qml:32
@@ -1110,12 +1110,12 @@ msgstr ""
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
+msgid "Omarchy Media Writer"
 msgstr ""
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
+msgid "Select Omarchy Version"
 msgstr "انتخاب نسخه فدورا"
 
 #: ../src/app/qml/main.qml:113
@@ -1134,9 +1134,9 @@ msgstr "بازیابی"
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
 #, fuzzy
 #| msgctxt "AboutDialog|"
-#| msgid "About Fedora Media Writer"
-msgid "Fedora Media Writer"
-msgstr "درباره Fedora Media Writer"
+#| msgid "About Omarchy Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "درباره Omarchy Media Writer"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1147,13 +1147,13 @@ msgstr ""
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
-"یک ابزار برای ایجاد یک USB لایو با یک نسخهٔ فدورا. نه تنها Fedora Media "
+"یک ابزار برای ایجاد یک USB لایو با یک نسخهٔ فدورا. نه تنها Omarchy Media "
 "Writer ایمیج را بر روی فلش مموری رایت کند، بلکه می تواند آن را برای شما "
 "دانلود نیز بکند. این نسخه های رسمی فدورا (سرور و استگاه کار)، چرخه های فدورا "
 "(KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop و ...) و آزمایشگاه های "
@@ -1163,10 +1163,10 @@ msgstr ""
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"همچنین Fedora Media Writer می تواند دیگر فایل های ISO قابل بوت موجود در دیسک "
+"همچنین Omarchy Media Writer می تواند دیگر فایل های ISO قابل بوت موجود در دیسک "
 "محلی شما را رایت کند، اما در نظر داشته باشید که این فقط با فدورا آزمایش شده "
 "است."
 
@@ -1214,7 +1214,7 @@ msgid "media"
 msgstr ""
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
+msgid "Write Omarchy images to your portable drives"
 msgstr "ایمیج فدورا را روی درایو های قابل حمل خود رایت کنید"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98

@@ -1,7 +1,7 @@
 # Privacy information
 
-Fedora Media Writer uses a custom User-Agent header for the Fedora project to have a clear statistic of how prevalent of a download method it is. 
+Omarchy Media Writer sends a custom User-Agent header when it fetches the Omarchy release information and ISO from omarchy.org and iso.omarchy.org.
 
-This User-Agent string is in the following format: `FedoraMediaWriter/$VERSION ($OS $OSVERSION; $BUILDARCH; $LOCALE; $DETAILS)`.
+This User-Agent string is in the following format: `OmarchyMediaWriter/$VERSION ($OS $OSVERSION; $BUILDARCH; $LOCALE; $DETAILS)`.
 
-You can disable this behavior by using `mediawriter --no-user-agent` which will make it use the Qt default User-Agent string (likely `Mozilla/5.0`).
+You can disable this behavior by using `omarchy-media-writer --no-user-agent` which will make it use the Qt default User-Agent string (likely `Mozilla/5.0`).

@@ -34,8 +34,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "A Fedora médiaíró névjegye"
+msgid "About Omarchy Media Writer"
+msgstr "A Omarchy médiaíró névjegye"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -45,8 +45,8 @@ msgstr "Verzió: %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "A Fedora médiaíró most újabb kiadásokat keres"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "A Omarchy médiaíró most újabb kiadásokat keres"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -284,11 +284,11 @@ msgstr "Helyezzen be egy USB-meghajtót."
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 "A meghajtó kisebb kapacitásra lesz átméretezve. Később újra átméretezheti az "
-"eredetire a Fedora médiaíróval; ez el fogja távolítani a telepítési médiát a "
+"eredetire a Omarchy médiaíróval; ez el fogja távolítani a telepítési médiát a "
 "meghajtóból."
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -305,11 +305,11 @@ msgstr "Nincs"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"Az alaplapját vagy eszközét még nem támogatja a Fedora médiaíró. További "
+"Az alaplapját vagy eszközét még nem támogatja a Omarchy médiaíró. További "
 "információkért arról, hogy támogatja-e a Fedorát, és hogyan kell indítható "
 "médiát készíteni hozzá, keresse fel <a href=%1>ezt az oldalt</a>."
 
@@ -847,10 +847,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">Várjon amíg a Fedora médiaíró helyreállítja a "
+"<p align=\"justify\">Várjon amíg a Omarchy médiaíró helyreállítja a "
 "hordozható meghajtót.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -884,8 +884,8 @@ msgstr "Helyreállítás"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
-msgstr "Fedora kiadás kiválasztása"
+msgid "Select Omarchy Release"
+msgstr "Omarchy kiadás kiválasztása"
 
 #: ../src/app/qml/VersionPage.qml:32
 msgctxt "VersionPage|"
@@ -1050,13 +1050,13 @@ msgstr "Nem sikerült a meghajtó elejéhez lépni az ellenőrzéshez"
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Fedora médiaíró"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy médiaíró"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
-msgstr "Fedora kiadás kiválasztása"
+msgid "Select Omarchy Version"
+msgstr "Omarchy kiadás kiválasztása"
 
 #: ../src/app/qml/main.qml:113
 msgctxt "main|"
@@ -1072,8 +1072,8 @@ msgstr "Helyreállítás"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Fedora médiaíró"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy médiaíró"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1084,28 +1084,28 @@ msgstr "Fedora élő USB-meghajtó létrehozása"
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
-"Egy eszköz indítható live USB meghajtó készítéséhez a Fedora egy "
-"változatával. A Fedora médiaíró nem csak ki tudja írni a lemezképet, hanem "
+"Egy eszköz indítható live USB meghajtó készítéséhez a Omarchy egy "
+"változatával. A Omarchy médiaíró nem csak ki tudja írni a lemezképet, hanem "
 "le is tudja tölteni azt. A hivatalos, támogatott verziókat (Server, "
-"Workstation), a Fedora Spineket (KDE Plasma Desktop, XFCE Desktop, Cinnamon "
-"Desktop,...), és a Fedora Labs (Design Suite, Security Lab, …) lemezképeit "
+"Workstation), a Omarchy Spineket (KDE Plasma Desktop, XFCE Desktop, Cinnamon "
+"Desktop,...), és a Omarchy Labs (Design Suite, Security Lab, …) lemezképeit "
 "nyújtja. Alapinformációkat is nyújt mindegyikről, hogy helyesen "
 "választhasson."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"A Fedora médiaíró képes más indítható ISO-kat is kiírni a helyi lemezéről, "
-"de tartsa észben, hogy az alkalmazás csak Fedora lemezképekkel lett "
+"A Omarchy médiaíró képes más indítható ISO-kat is kiírni a helyi lemezéről, "
+"de tartsa észben, hogy az alkalmazás csak Omarchy lemezképekkel lett "
 "tesztelve."
 
 #. (itstool) path: keywords/keyword
@@ -1149,8 +1149,8 @@ msgid "media"
 msgstr "média"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "Írjon Fedora lemezképeket a hordozható meghajtóira"
+msgid "Write Omarchy images to your portable drives"
+msgstr "Írjon Omarchy lemezképeket a hordozható meghajtóira"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

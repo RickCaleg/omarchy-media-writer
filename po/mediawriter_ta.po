@@ -24,8 +24,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "ஃபெடோரா ஊடக எழுதி பற்றி"
+msgid "About Omarchy Media Writer"
+msgstr "Omarchy ஊடக எழுதி பற்றி"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, fuzzy, qt-format
@@ -37,9 +37,9 @@ msgstr "பதிப்பு %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
+msgid "Omarchy Media Writer is now checking for new releases"
 msgstr ""
-"ஃபெடோரா ஊடக எழுதி தற்பொழுது புதிய வெளியீடுகளை பரிசோடித்துக்கொண்டு இருக்கிறது"
+"Omarchy ஊடக எழுதி தற்பொழுது புதிய வெளியீடுகளை பரிசோடித்துக்கொண்டு இருக்கிறது"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -302,7 +302,7 @@ msgstr ""
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 
@@ -320,7 +320,7 @@ msgstr ""
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
@@ -955,14 +955,14 @@ msgstr ""
 #, fuzzy
 #| msgctxt "RestoreDialog|"
 #| msgid ""
-#| "<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+#| "<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 #| "portable drive.</p>"
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\"> ஃபெடோரா ஊடக எழுதி மீட்டெடுக்கையில் தயவுசெய்து காத்திருக்கவும்</"
+"<p align=\"justify\"> Omarchy ஊடக எழுதி மீட்டெடுக்கையில் தயவுசெய்து காத்திருக்கவும்</"
 "p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -1003,7 +1003,7 @@ msgstr "மீட்டெடு "
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
+msgid "Select Omarchy Release"
 msgstr ""
 
 #: ../src/app/qml/VersionPage.qml:32
@@ -1177,14 +1177,14 @@ msgstr ""
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 #, fuzzy
-#| msgid "Fedora Media Writer"
+#| msgid "Omarchy Media Writer"
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "ஃபெடோரா ஊடக எழுதி "
+msgid "Omarchy Media Writer"
+msgstr "Omarchy ஊடக எழுதி "
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
+msgid "Select Omarchy Version"
 msgstr ""
 
 #: ../src/app/qml/main.qml:113
@@ -1201,8 +1201,8 @@ msgstr "மீட்டெடு "
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "ஃபெடோரா ஊடக எழுதி "
+msgid "Omarchy Media Writer"
+msgstr "Omarchy ஊடக எழுதி "
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1213,26 +1213,26 @@ msgstr ""
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
-"ஃபெடோரா பதிப்புடன் வரும் நேரடி இயக்கக USB வட்டை உருவாக்கும் ஒரு கருவி. ஃபெடோரா ஊடக "
+"Omarchy பதிப்புடன் வரும் நேரடி இயக்கக USB வட்டை உருவாக்கும் ஒரு கருவி. Omarchy ஊடக "
 "இயக்கி உங்கள் USB வட்டை எழுதுவதற்கு மட்டுமல்ல, கூடுதலாக  பதிவிறக்கவும் செய்யலாம். இது "
-"Server, Workstation,  Fedora spins (KDE Plasma Desktop, Xfce Desktop, "
-"Cinnamon Desktop,...), மற்றும் Fedora Labs (Design Suite, Security Lab,...) "
+"Server, Workstation,  Omarchy spins (KDE Plasma Desktop, Xfce Desktop, "
+"Cinnamon Desktop,...), மற்றும் Omarchy Labs (Design Suite, Security Lab,...) "
 "போன்ற பதிப்புகளையும் அளிக்கவல்லது. இது உங்களுக்கு உதவ  ஒவ்வொன்றின் அடி ப்படை "
 "தகவல்களையும்  அளிக்கும்."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"ஃபெடோரா ஊடக இயக்கி மற்ற ISOக்களையும் இயக்கவல்லது. ஆனால் இது ஃபெடோரா வகை ISO-க்களை "
+"Omarchy ஊடக இயக்கி மற்ற ISOக்களையும் இயக்கவல்லது. ஆனால் இது Omarchy வகை ISO-க்களை "
 "வைத்து மட்டுமே சோதிக்கப்பட்டது என்பதனை நினைவில் கொள்ளவும்."
 
 #. (itstool) path: keywords/keyword
@@ -1279,8 +1279,8 @@ msgid "media"
 msgstr ""
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "ஃபெடோராவை உங்கள் பெயரத்தகு சாதனத்தில் எழுதுக"
+msgid "Write Omarchy images to your portable drives"
+msgstr "Omarchyவை உங்கள் பெயரத்தகு சாதனத்தில் எழுதுக"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

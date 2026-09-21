@@ -25,8 +25,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "О програму Писац Федора медија"
+msgid "About Omarchy Media Writer"
+msgstr "О програму Писац Omarchy медија"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -36,8 +36,8 @@ msgstr "Издање %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Писац Федора медија сада проверава да ли има нових издања"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Писац Omarchy медија сада проверава да ли има нових издања"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -276,11 +276,11 @@ msgstr "Убаците УСБ уређај."
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 "Величина вашег уређаја ће бити промењена на мањи капацитет. Можете му "
-"вратити нормалну величину коришћењем програма Fedora Media Writer. Ово ће "
+"вратити нормалну величину коришћењем програма Omarchy Media Writer. Ово ће "
 "уклонити инсталациони медијум са вашег уређаја."
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -297,11 +297,11 @@ msgstr "Ништа"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"Ваша плоча или уређај још увек нису подржани у програму Fedora Media Writer. "
+"Ваша плоча или уређај још увек нису подржани у програму Omarchy Media Writer. "
 "Погледајте <a href=%1>ову страницу</a> за више података о компатибилности са "
 "Федором и о томе како да направите подизни медијум за њега."
 
@@ -842,10 +842,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">Молимо сачекајте док Федорин писач медија обнавља ваш "
+"<p align=\"justify\">Молимо сачекајте док Omarchyн писач медија обнавља ваш "
 "преносни уређај.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -879,7 +879,7 @@ msgstr "Врати"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
+msgid "Select Omarchy Release"
 msgstr "Изаберите издање Федоре"
 
 #: ../src/app/qml/VersionPage.qml:32
@@ -1045,12 +1045,12 @@ msgstr "Нисам успео да премотам на почетак уређ
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Федорин писач медија"
+msgid "Omarchy Media Writer"
+msgstr "Omarchyн писач медија"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
+msgid "Select Omarchy Version"
 msgstr "Изаберите издање Федоре"
 
 #: ../src/app/qml/main.qml:113
@@ -1067,8 +1067,8 @@ msgstr "Поврати"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Fedora Писач Медија"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Писач Медија"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1079,27 +1079,27 @@ msgstr "Направите Федорин живи УСБ уређај"
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
-"Алатка за стварање подизних, живих УСБ уређаја са издањима Fedora-е. Не само "
-"што Fedora Писач Медија може писати слике на ваш флеш уређај, он их такође "
+"Алатка за стварање подизних, живих УСБ уређаја са издањима Omarchy-е. Не само "
+"што Omarchy Писач Медија може писати слике на ваш флеш уређај, он их такође "
 "може преузети уместо вас. Пружа званична издања (за сервере, радне станице), "
-"Fedora спинове (КДЕ Плазма окружење, Xfce окружење, Цинамон окружење,...) и "
-"Fedora Лабораторије (Design Suite, Security Lab,...). Такође пружа основне "
+"Omarchy спинове (КДЕ Плазма окружење, Xfce окружење, Цинамон окружење,...) и "
+"Omarchy Лабораторије (Design Suite, Security Lab,...). Такође пружа основне "
 "податке о сваком од издања и тиме вам помаже да направите добар избор."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"Fedora Писач Медија такође може писати друге подизне ISO-е учитане са вашег "
-"локалног диска али знајте да се испробава само са Fedora сликама система."
+"Omarchy Писач Медија такође може писати друге подизне ISO-е учитане са вашег "
+"локалног диска али знајте да се испробава само са Omarchy сликама система."
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1142,8 +1142,8 @@ msgid "media"
 msgstr "медиј"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "Пишите Fedora слике на ваше преносне уређаје"
+msgid "Write Omarchy images to your portable drives"
+msgstr "Пишите Omarchy слике на ваше преносне уређаје"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

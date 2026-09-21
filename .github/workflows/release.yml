@@ -6,9 +6,6 @@ on:
 
 env:
     QT_VERSION: '6.10.2'
-    SIGNPATH_ORGANIZATION_ID: '67c40f6a-03ed-4cf0-9212-f72cb0308cc2'
-    SIGNPATH_PROJECT_SLUG: 'MediaWriter'
-    SIGNPATH_SIGNING_POLICY_SLUG: 'test-signing'
 
 jobs:
   macOS:
@@ -52,25 +49,25 @@ jobs:
       - name: Bundle
         run: |
           set -eo pipefail
-          "$QT_ROOT_DIR"/bin/macdeployqt build/src/app/FedoraMediaWriter.app -qmldir=src/app/qml -executable=build/src/app/FedoraMediaWriter.app/Contents/MacOS/helper
+          "$QT_ROOT_DIR"/bin/macdeployqt build/src/app/OmarchyMediaWriter.app -qmldir=src/app/qml -executable=build/src/app/OmarchyMediaWriter.app/Contents/MacOS/helper
           # No idea why but macdeployqt deploys debug libs too, just remove them, maybe fix this sometimes
-          for i in `find build/src/app/FedoraMediaWriter.app/ -name '*.dSYM'`; do rm -fr "$i"; done
+          for i in `find build/src/app/OmarchyMediaWriter.app/ -name '*.dSYM'`; do rm -fr "$i"; done
           cd build/src/app/
-          "$QT_ROOT_DIR"/bin/macdeployqt FedoraMediaWriter.app -dmg -always-overwrite
-          mv FedoraMediaWriter.dmg ../../../FedoraMediaWriter-macos${{ matrix.dmg_arch_suffix }}-${{ env.TAG_NAME }}.dmg
+          "$QT_ROOT_DIR"/bin/macdeployqt OmarchyMediaWriter.app -dmg -always-overwrite
+          mv OmarchyMediaWriter.dmg ../../../OmarchyMediaWriter-macos${{ matrix.dmg_arch_suffix }}-${{ env.TAG_NAME }}.dmg
 
       - name: Upload artifact (for direct download from workflow)
         uses: actions/upload-artifact@v6
         with:
           # Use the dmg_arch_suffix for the artifact name
-          name: FedoraMediaWriter-macos${{ matrix.dmg_arch_suffix }}-${{ env.TAG_NAME }}.dmg
-          path: FedoraMediaWriter-macos${{ matrix.dmg_arch_suffix }}-${{ env.TAG_NAME }}.dmg
+          name: OmarchyMediaWriter-macos${{ matrix.dmg_arch_suffix }}-${{ env.TAG_NAME }}.dmg
+          path: OmarchyMediaWriter-macos${{ matrix.dmg_arch_suffix }}-${{ env.TAG_NAME }}.dmg
 
       - name: Upload to GitHub (release)
         run: |
           set -eo pipefail
           # Pass the full filename including the architecture suffix
-          bash dist/upload-to-github.sh github_api_token=${{ secrets.GITHUB_TOKEN }} tag="${{ env.TAG_NAME }}" filename="FedoraMediaWriter-macos${{ matrix.dmg_arch_suffix }}-${{ env.TAG_NAME }}.dmg"
+          bash dist/upload-to-github.sh github_api_token=${{ secrets.GITHUB_TOKEN }} tag="${{ env.TAG_NAME }}" filename="OmarchyMediaWriter-macos${{ matrix.dmg_arch_suffix }}-${{ env.TAG_NAME }}.dmg"
 
   Windows-MSVC:
     strategy:
@@ -168,34 +165,6 @@ jobs:
           find . -type d -not -path '*/\.*' | sed 's/^\.\///g' | sed 's@\/@\\@g' | grep -v "^.$" > uninstall.log
           find . -type f -not -path '*/\.*' | sed 's/^\.\///g' | sed 's@\/@\\@g' | sort >> uninstall.log
 
-      - name: Upload unsigned portable executables for signing
-        id: upload-pe
-        uses: actions/upload-artifact@v6
-        with:
-          name: unsigned-pe-${{ matrix.artifact_arch }}
-          path: |
-            build/app/release/mediawriter.exe
-            build/app/release/helper.exe
-
-      - name: Sign unsigned portable executables
-        id: sign-pe
-        uses: signpath/github-action-submit-signing-request@v2
-        with:
-          api-token: "${{ secrets.SIGNPATH_API_TOKEN }}"
-          organization-id: "${{ env.SIGNPATH_ORGANIZATION_ID }}"
-          project-slug: "${{ env.SIGNPATH_PROJECT_SLUG }}"
-          signing-policy-slug: "${{ env.SIGNPATH_SIGNING_POLICY_SLUG }}"
-          artifact-configuration-slug: "portable-executables"
-          github-artifact-id: "${{ steps.upload-pe.outputs.artifact-id }}"
-          wait-for-completion: true
-          output-artifact-directory: "signed-pe"
-
-      - name: Replace portable executables with signed versions
-        shell: bash
-        run: |
-          cp signed-pe/mediawriter.exe build/app/release/mediawriter.exe
-          cp signed-pe/helper.exe build/app/release/helper.exe
-
       - name: Installer
         shell: bash
         run: |
@@ -228,32 +197,7 @@ jobs:
           rm -rf NScurl.zip NScurl_temp
 
           "/c/Program Files (x86)/NSIS/makensis.exe" -DCERTPATH="" -DCERTPASS="" -DVCREDIST_ARCH=${{ matrix.vcredist_arch }} dist/win/mediawriter_native.tmp.nsi
-          mv dist/win/FMW-setup.exe ./"FedoraMediaWriter-${{ matrix.artifact_arch }}-${{ env.TAG_NAME }}.exe"
-
-      - name: Upload unsigned installer executables for signing
-        id: upload-ie
-        uses: actions/upload-artifact@v6
-        with:
-          name: unsigned-installer-${{ matrix.artifact_arch }}
-          path: FedoraMediaWriter-${{ matrix.artifact_arch }}-${{ env.TAG_NAME }}.exe
-
-      - name: Sign unsigned installer executables
-        id: sign-ie
-        uses: signpath/github-action-submit-signing-request@v2
-        with:
-          api-token: "${{ secrets.SIGNPATH_API_TOKEN }}"
-          organization-id: "${{ env.SIGNPATH_ORGANIZATION_ID }}"
-          project-slug: "${{ env.SIGNPATH_PROJECT_SLUG }}"
-          signing-policy-slug: "${{ env.SIGNPATH_SIGNING_POLICY_SLUG }}"
-          artifact-configuration-slug: "installer-executables"
-          github-artifact-id: "${{ steps.upload-ie.outputs.artifact-id }}"
-          wait-for-completion: true
-          output-artifact-directory: "signed-ie"
-
-      - name: Replace installer executables with signed versions
-        shell: bash
-        run: |
-          cp "signed-ie/FedoraMediaWriter-${{ matrix.artifact_arch }}-${{ env.TAG_NAME }}.exe" "./FedoraMediaWriter-${{ matrix.artifact_arch }}-${{ env.TAG_NAME }}.exe"
+          mv dist/win/FMW-setup.exe ./"OmarchyMediaWriter-${{ matrix.artifact_arch }}-${{ env.TAG_NAME }}.exe"
 
       - name: Portable
         shell: bash
@@ -261,23 +205,15 @@ jobs:
           # Remove uninstall.log as it's only needed for the installer
           rm -f build/app/release/uninstall.log
 
-          mkdir -p FedoraMediaWriter-portable
-          cp -r build/app/release/* FedoraMediaWriter-portable/
+          mkdir -p OmarchyMediaWriter-portable
+          cp -r build/app/release/* OmarchyMediaWriter-portable/
 
-          7z a -tzip "FedoraMediaWriter-${{ matrix.artifact_arch }}-portable-${{ env.TAG_NAME }}.zip" ./FedoraMediaWriter-portable/*
+          7z a -tzip "OmarchyMediaWriter-${{ matrix.artifact_arch }}-portable-${{ env.TAG_NAME }}.zip" ./OmarchyMediaWriter-portable/*
 
       - name: Upload Portable to GitHub (release)
         run: |
-          bash dist/upload-to-github.sh github_api_token=${{ secrets.GITHUB_TOKEN }} tag="${{ env.TAG_NAME }}" filename="FedoraMediaWriter-${{ matrix.artifact_arch }}-portable-${{ env.TAG_NAME }}.zip"
+          bash dist/upload-to-github.sh github_api_token=${{ secrets.GITHUB_TOKEN }} tag="${{ env.TAG_NAME }}" filename="OmarchyMediaWriter-${{ matrix.artifact_arch }}-portable-${{ env.TAG_NAME }}.zip"
 
       - name: Upload to GitHub (release)
         run: |
-          bash dist/upload-to-github.sh github_api_token=${{ secrets.GITHUB_TOKEN }} tag="${{ env.TAG_NAME }}" filename="FedoraMediaWriter-${{ matrix.artifact_arch }}-${{ env.TAG_NAME }}.exe"
-
-      - name: Publish to WinGet
-        if: matrix.arch == 'x64'
-        uses: vedantmgoyal9/winget-releaser@main
-        with:
-          identifier: Fedora.FedoraMediaWriter
-          version: ${{ env.TAG_NAME }}
-          token: ${{ secrets.WINGET_TOKEN }}
+          bash dist/upload-to-github.sh github_api_token=${{ secrets.GITHUB_TOKEN }} tag="${{ env.TAG_NAME }}" filename="OmarchyMediaWriter-${{ matrix.artifact_arch }}-${{ env.TAG_NAME }}.exe"

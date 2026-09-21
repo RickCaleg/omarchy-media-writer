@@ -47,7 +47,7 @@ void stopArbiter() {
 
 DADissenterRef OnMountApproval(DADiskRef disk, void *context) {
     (void) disk; (void) context; // unused
-    return DADissenterCreate(kCFAllocatorDefault, kDAReturnExclusiveAccess, CFSTR("Fedora Media Writer"));
+    return DADissenterCreate(kCFAllocatorDefault, kDAReturnExclusiveAccess, CFSTR("Omarchy Media Writer"));
 }
 
 

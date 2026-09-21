@@ -21,8 +21,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "페도라 미디어 작성기 정보"
+msgid "About Omarchy Media Writer"
+msgstr "Omarchy 미디어 작성기 정보"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -32,8 +32,8 @@ msgstr "버전 %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "페도라 미디어 작성기가 새로운 출시를 확인하고 있습니다"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Omarchy 미디어 작성기가 새로운 출시를 확인하고 있습니다"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -269,10 +269,10 @@ msgstr "USB 드라이브를 연결해 주세요."
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
-"당신의 드라이브가 더 작은 공간으로 조정됩니다. 페도라 미디어 작성기를 사용하"
+"당신의 드라이브가 더 작은 공간으로 조정됩니다. Omarchy 미디어 작성기를 사용하"
 "여 정상 상태로 공간을 재조정할 수 있습니다. 이러면 해당 드라이브에서 설치 미"
 "디어가 제거됩니다."
 
@@ -290,11 +290,11 @@ msgstr "없음"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"페도라 미디어 작성기가 현재 보드 또는 장치를 지원하지 않습니다. 페도라와의 호"
+"Omarchy 미디어 작성기가 현재 보드 또는 장치를 지원하지 않습니다. Omarchy와의 호"
 "환성과 부팅 가능한 미디어 생성 방법에 대한 자세한 정보는 <a href=%1>이 곳</a>"
 "을 확인해 주세요."
 
@@ -826,10 +826,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">페도라 미디어 작성기가 이동식 드라이브를 복구할때까지 기"
+"<p align=\"justify\">Omarchy 미디어 작성기가 이동식 드라이브를 복구할때까지 기"
 "다려 주세요.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -863,8 +863,8 @@ msgstr "복구"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
-msgstr "페도라 출시 선택"
+msgid "Select Omarchy Release"
+msgstr "Omarchy 출시 선택"
 
 #: ../src/app/qml/VersionPage.qml:32
 msgctxt "VersionPage|"
@@ -1029,13 +1029,13 @@ msgstr "검증을 위한 드라이버 시작하기를 찾을 수 없습니다"
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "페도라 미디어 작성기"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy 미디어 작성기"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
-msgstr "페도라 버전 선택"
+msgid "Select Omarchy Version"
+msgstr "Omarchy 버전 선택"
 
 #: ../src/app/qml/main.qml:113
 msgctxt "main|"
@@ -1051,8 +1051,8 @@ msgstr "복구"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "페도라 미디어 작성기"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy 미디어 작성기"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1063,27 +1063,27 @@ msgstr "페도라 라이브 USB 드라이버를 생성합니다"
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
-"페도라 배포판으로 부팅 가능한 라이브 USB 드라이브를 생성하는 도구입니다. 페도"
+"Omarchy 배포판으로 부팅 가능한 라이브 USB 드라이브를 생성하는 도구입니다. 페도"
 "라 미디어 작성기는 사용자의 플래시 드라이브에 이미지를 작성할 수 있으며 사용"
 "자 대신 이미지를 내려받을 수도 있습니다. 공식 배포판(서버, 워크스테이션), 페"
 "도라 스핀(KDE 플래즈마 데스크탑, Xfce 데스크탑, 시나몬 데스크탑,...), 그리고 "
-"페도라 랩(디자인 제품군, 보안 랩,...) 등이 있습니다. 사용자가 알맞은 선택을 "
+"Omarchy 랩(디자인 제품군, 보안 랩,...) 등이 있습니다. 사용자가 알맞은 선택을 "
 "할 수 있도록 각 제품에 대한 기본 정보가 제공됩니다."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"페도라 미디어 작성기는 사용자의 로컬 디스크의 다른 부팅 가능한 ISO에서도 쓸 "
-"수 있지만, 페도라 이미지만 시험되었으니 유의하시기 바랍니다."
+"Omarchy 미디어 작성기는 사용자의 로컬 디스크의 다른 부팅 가능한 ISO에서도 쓸 "
+"수 있지만, Omarchy 이미지만 시험되었으니 유의하시기 바랍니다."
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1126,8 +1126,8 @@ msgid "media"
 msgstr "미디어"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "사용자의 이동식 드라이브에 페도라 이미지를 작성합니다"
+msgid "Write Omarchy images to your portable drives"
+msgstr "사용자의 이동식 드라이브에 Omarchy 이미지를 작성합니다"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

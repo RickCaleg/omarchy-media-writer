@@ -25,10 +25,10 @@ msgstr ""
 #: ../src/app/qml/AboutDialog.qml:48
 #, fuzzy
 #| msgctxt "ImageList|"
-#| msgid "About Fedora Media Writer"
+#| msgid "About Omarchy Media Writer"
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "Rreth Fedora Media Writer"
+msgid "About Omarchy Media Writer"
+msgstr "Rreth Omarchy Media Writer"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, fuzzy, qt-format
@@ -41,10 +41,10 @@ msgstr "Versioni %1"
 #: ../src/app/qml/AboutDialog.qml:64
 #, fuzzy
 #| msgctxt "ImageList|"
-#| msgid "Fedora Media Writer is now checking for new releases"
+#| msgid "Omarchy Media Writer is now checking for new releases"
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Fedora Media Writer është  tani duke kontrolluar për njoftime të reja"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Omarchy Media Writer është  tani duke kontrolluar për njoftime të reja"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, fuzzy, qt-format
@@ -330,7 +330,7 @@ msgstr ""
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 
@@ -354,7 +354,7 @@ msgstr "Asnjë"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
@@ -1025,14 +1025,14 @@ msgstr ""
 #, fuzzy
 #| msgctxt "RestoreDialog|"
 #| msgid ""
-#| "<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+#| "<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 #| "portable drive.</p>"
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">Ju lutemi, prisni, teksa Fedora Media Writer e rikthen "
+"<p align=\"justify\">Ju lutemi, prisni, teksa Omarchy Media Writer e rikthen "
 "diskun tuaj portativ në gjendjen e mëparshme.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -1073,7 +1073,7 @@ msgstr "Riktheje"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
+msgid "Select Omarchy Release"
 msgstr ""
 
 #: ../src/app/qml/VersionPage.qml:32
@@ -1273,14 +1273,14 @@ msgstr "Nuk mund të hapë diskun për të shkruar"
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 #, fuzzy
-#| msgid "Fedora Media Writer"
+#| msgid "Omarchy Media Writer"
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
+msgid "Select Omarchy Version"
 msgstr ""
 
 #: ../src/app/qml/main.qml:113
@@ -1300,8 +1300,8 @@ msgstr "Riktheje"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1312,28 +1312,28 @@ msgstr ""
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
-"Një mjet për krijim diskthi USB live me një version Fedora. Fedora Media "
+"Një mjet për krijim diskthi USB live me një version Omarchy. Omarchy Media "
 "Writer jo vetëm që mund të shkruajë një pamje te diskthi juaj, mundet edhe "
 "ta shkarkojë atë për ju. Ju ofron versione zyrtare (Server, Workstation), "
-"degëzime Fedora(Desktop KDE Plasma, Desktop Xfce, Desktop Cinnamon,…), dhe "
-"Fedora Labs (Design Suite, Security Lab,...). Furnizon të dhëna bazë rreth "
+"degëzime Omarchy(Desktop KDE Plasma, Desktop Xfce, Desktop Cinnamon,…), dhe "
+"Omarchy Labs (Design Suite, Security Lab,...). Furnizon të dhëna bazë rreth "
 "secilit prej tyre për t’ju ndihmuar të bëni zgjedhjen e duhur."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"Fedora Media Writer mund të shkruajë edhe ISO të tjera të nisshme të "
+"Omarchy Media Writer mund të shkruajë edhe ISO të tjera të nisshme të "
 "ngarkuara mga disku juaj vendor, por mos harroni se është provuar vetëm me "
-"pamje Fedora."
+"pamje Omarchy."
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1379,8 +1379,8 @@ msgid "media"
 msgstr ""
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "Shkruani pamje Fedora te disqet tuaj portativë"
+msgid "Write Omarchy images to your portable drives"
+msgstr "Shkruani pamje Omarchy te disqet tuaj portativë"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

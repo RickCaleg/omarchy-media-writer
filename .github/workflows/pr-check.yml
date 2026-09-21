@@ -1,6 +1,6 @@
 name: pr-check
 
-on: [pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 env:
     QT_VERSION: '6.10.2'
@@ -38,14 +38,14 @@ jobs:
 
       - uses: bilelmoussaoui/flatpak-github-actions/flatpak-builder@v6
         with:
-          bundle: "org.fedoraproject.MediaWriter.flatpak"
-          manifest-path: "dist/flatpak/org.fedoraproject.MediaWriter.json"
+          bundle: "io.github.rickcaleg.OmarchyMediaWriter.flatpak"
+          manifest-path: "dist/flatpak/io.github.rickcaleg.OmarchyMediaWriter.json"
           cache-key: flatpak-builder-${{ github.sha }}
 
       - uses: actions/upload-artifact@v6
         with:
-          name: org.fedoraproject.MediaWriter.flatpak
-          path: org.fedoraproject.MediaWriter.flatpak
+          name: io.github.rickcaleg.OmarchyMediaWriter.flatpak
+          path: io.github.rickcaleg.OmarchyMediaWriter.flatpak
 
   macOS:
     strategy:
@@ -85,17 +85,17 @@ jobs:
       - name: Bundle
         run: |
           set -eo pipefail
-          "$QT_ROOT_DIR"/bin/macdeployqt build/src/app/FedoraMediaWriter.app -qmldir=src/app/qml -executable=build/src/app/FedoraMediaWriter.app/Contents/MacOS/helper
+          "$QT_ROOT_DIR"/bin/macdeployqt build/src/app/OmarchyMediaWriter.app -qmldir=src/app/qml -executable=build/src/app/OmarchyMediaWriter.app/Contents/MacOS/helper
           # No idea why but macdeployqt deploys debug libs too, just remove them, maybe fix this sometimes
-          for i in `find build/src/app/FedoraMediaWriter.app/ -name '*.dSYM'`; do rm -fr "$i"; done
+          for i in `find build/src/app/OmarchyMediaWriter.app/ -name '*.dSYM'`; do rm -fr "$i"; done
           cd build/src/app/
-          "$QT_ROOT_DIR"/bin/macdeployqt FedoraMediaWriter.app -dmg -always-overwrite
-          mv FedoraMediaWriter.dmg ../../../FedoraMediaWriter-macos${{ matrix.dmg_suffix }}.dmg
+          "$QT_ROOT_DIR"/bin/macdeployqt OmarchyMediaWriter.app -dmg -always-overwrite
+          mv OmarchyMediaWriter.dmg ../../../OmarchyMediaWriter-macos${{ matrix.dmg_suffix }}.dmg
 
       - uses: actions/upload-artifact@v6
         with:
-          name: FedoraMediaWriter-macos${{ matrix.dmg_suffix }}.dmg
-          path: FedoraMediaWriter-macos${{ matrix.dmg_suffix }}.dmg
+          name: OmarchyMediaWriter-macos${{ matrix.dmg_suffix }}.dmg
+          path: OmarchyMediaWriter-macos${{ matrix.dmg_suffix }}.dmg
 
   Windows-MSVC:
     strategy:
@@ -220,7 +220,7 @@ jobs:
           rm -rf NScurl.zip NScurl_temp
 
           "/c/Program Files (x86)/NSIS/makensis.exe" -DCERTPATH="" -DCERTPASS="" -DVCREDIST_ARCH=${{ matrix.vcredist_arch }} dist/win/mediawriter_native.tmp.nsi
-          mv dist/win/FMW-setup.exe ./"FedoraMediaWriter-${{ matrix.artifact_arch }}.exe"
+          mv dist/win/FMW-setup.exe ./"OmarchyMediaWriter-${{ matrix.artifact_arch }}.exe"
 
       - name: Portable
         shell: bash
@@ -228,17 +228,17 @@ jobs:
           # Remove uninstall.log as it's only needed for the installer
           rm -f build/app/release/uninstall.log
 
-          mkdir -p FedoraMediaWriter-portable
-          cp -r build/app/release/* FedoraMediaWriter-portable/
+          mkdir -p OmarchyMediaWriter-portable
+          cp -r build/app/release/* OmarchyMediaWriter-portable/
 
-          7z a -tzip "FedoraMediaWriter-${{ matrix.artifact_arch }}-portable.zip" ./FedoraMediaWriter-portable/*
-
-      - uses: actions/upload-artifact@v6
-        with:
-          name: FedoraMediaWriter-${{ matrix.artifact_arch }}-portable.zip
-          path: FedoraMediaWriter-${{ matrix.artifact_arch }}-portable.zip
+          7z a -tzip "OmarchyMediaWriter-${{ matrix.artifact_arch }}-portable.zip" ./OmarchyMediaWriter-portable/*
 
       - uses: actions/upload-artifact@v6
         with:
-          name: FedoraMediaWriter-${{ matrix.artifact_arch }}.exe
-          path: FedoraMediaWriter-${{ matrix.artifact_arch }}.exe
+          name: OmarchyMediaWriter-${{ matrix.artifact_arch }}-portable.zip
+          path: OmarchyMediaWriter-${{ matrix.artifact_arch }}-portable.zip
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: OmarchyMediaWriter-${{ matrix.artifact_arch }}.exe
+          path: OmarchyMediaWriter-${{ matrix.artifact_arch }}.exe

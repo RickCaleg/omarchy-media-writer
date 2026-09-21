@@ -37,7 +37,7 @@ ModalDialog {
             spacing: units.gridUnit
 
             Heading {
-                text: qsTr("About Fedora Media Writer")
+                text: qsTr("About Omarchy Media Writer")
                 level: 3
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 width: mainColumn.width - units.gridUnit * 2
@@ -53,13 +53,13 @@ ModalDialog {
                 width: mainColumn.width - units.gridUnit * 2
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 visible: releases.beingUpdated
-                text: qsTr("Fedora Media Writer is now checking for new releases")
+                text: qsTr("Omarchy Media Writer is now checking for new releases")
             }
 
             QQC2.Label {
                 width: mainColumn.width - units.gridUnit * 2
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                text: qsTr("Please report bugs or your suggestions on %1").arg("<a href=\"https://github.com/FedoraQt/MediaWriter/issues\"><font color=\"%1\">https://github.com/FedoraQt/MediaWriter/</font></a>").arg(palette.link)
+                text: qsTr("Please report bugs or your suggestions on %1").arg("<a href=\"https://github.com/RickCaleg/omarchy-media-writer/issues\"><font color=\"%1\">https://github.com/RickCaleg/omarchy-media-writer/</font></a>").arg(palette.link)
                 textFormat: Text.RichText
                 onLinkActivated: Qt.openUrlExternally(link)
 

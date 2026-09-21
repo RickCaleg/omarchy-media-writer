@@ -38,8 +38,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "À propos de Fedora Media Writer"
+msgid "About Omarchy Media Writer"
+msgstr "À propos de Omarchy Media Writer"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -49,8 +49,8 @@ msgstr "Version %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Fedora Media Writer vérifie la disponibilité de nouvelles versions"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Omarchy Media Writer vérifie la disponibilité de nouvelles versions"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -289,11 +289,11 @@ msgstr "Veuillez insérer un lecteur USB."
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
 "Votre lecteur sera redimensionné à une taille plus petite. Vous pourrez le "
-"ramener à sa taille normale en utilisant Fedora Media Writer. Cela "
+"ramener à sa taille normale en utilisant Omarchy Media Writer. Cela "
 "supprimera le support d'installation de votre lecteur."
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -310,13 +310,13 @@ msgstr "—"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"Votre carte ou appareil n'est pas encore pris en charge par Fedora Media "
+"Votre carte ou appareil n'est pas encore pris en charge par Omarchy Media "
 "Writer. Consultez <a href=%1>cette page</a> pour plus d'informations sur la "
-"compatibilité de Fedora avec cet appareil et savoir comment créer un support "
+"compatibilité de Omarchy avec cet appareil et savoir comment créer un support "
 "de démarrage compatible avec celui-ci."
 
 #: ../src/app/qml/DownloadPage.qml:160
@@ -857,10 +857,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">Veuillez patienter pendant que Fedora Media Writer "
+"<p align=\"justify\">Veuillez patienter pendant que Omarchy Media Writer "
 "restaure votre lecteur amovible.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -894,8 +894,8 @@ msgstr "Restaurer"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
-msgstr "Sélectionnez une version de Fedora"
+msgid "Select Omarchy Release"
+msgstr "Sélectionnez une version de Omarchy"
 
 #: ../src/app/qml/VersionPage.qml:32
 msgctxt "VersionPage|"
@@ -1063,13 +1063,13 @@ msgstr ""
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
-msgstr "Sélectionnez une version de Fedora"
+msgid "Select Omarchy Version"
+msgstr "Sélectionnez une version de Omarchy"
 
 #: ../src/app/qml/main.qml:113
 msgctxt "main|"
@@ -1085,8 +1085,8 @@ msgstr "Restaurer"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1097,29 +1097,29 @@ msgstr "Créez une clé USB live Fedora"
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
-"Un outil pour créer un lecteur USB live avec une des éditions de Fedora. Non "
-"seulement Fedora Media Writer peut écrire une image sur votre disque USB, il "
+"Un outil pour créer un lecteur USB live avec une des éditions de Omarchy. Non "
+"seulement Omarchy Media Writer peut écrire une image sur votre disque USB, il "
 "peut aussi la télécharger pour vous. Il met à disposition les éditions "
-"officielles (Server, Workstation), les Spins Fedora (bureau KDE Plasma, "
-"bureau Xfce, bureau Cinnamon…) et les Labs Fedora (Design Suite, Security "
+"officielles (Server, Workstation), les Spins Omarchy (bureau KDE Plasma, "
+"bureau Xfce, bureau Cinnamon…) et les Labs Omarchy (Design Suite, Security "
 "Lab…). Il vous fournit aussi des informations de base sur chacune de ces "
 "options pour vous permettre de faire le bon choix."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"Fedora Media Writer peut également écrire d'autres ISO bootables chargés "
+"Omarchy Media Writer peut également écrire d'autres ISO bootables chargés "
 "depuis votre disque local, mais gardez en tête que l'outil est testé "
-"uniquement avec les images Fedora."
+"uniquement avec les images Omarchy."
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1162,8 +1162,8 @@ msgid "media"
 msgstr "media,support"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "Écrivez des images Fedora sur vos lecteurs amovibles"
+msgid "Write Omarchy images to your portable drives"
+msgstr "Écrivez des images Omarchy sur vos lecteurs amovibles"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

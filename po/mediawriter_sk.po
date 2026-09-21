@@ -25,8 +25,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "O Fedora Media Writer"
+msgid "About Omarchy Media Writer"
+msgstr "O Omarchy Media Writer"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -36,8 +36,8 @@ msgstr "Verzia %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Fedora Media Writer teraz kontroluje nové vydania"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Omarchy Media Writer teraz kontroluje nové vydania"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -274,10 +274,10 @@ msgstr "Vložte USB disk."
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
-"Disk bude zmenšený na menšiu kapacitu. Fedora Media Writer umožňuje zmeniť "
+"Disk bude zmenšený na menšiu kapacitu. Omarchy Media Writer umožňuje zmeniť "
 "jeho veľkosť späť na pôvodnú, to však vymaže inštalačné médiu z disku."
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -294,11 +294,11 @@ msgstr "Nič"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"Fedora Media Writer zatiaľ nepodporuje vaše zariadenie alebo dosku. Viac "
+"Omarchy Media Writer zatiaľ nepodporuje vaše zariadenie alebo dosku. Viac "
 "informácií o kompatibilite s Fedorou, a ako pre ňu vytvoriť spustiteľné "
 "médium, nájdete na <a href=%1>tejto stránke</a>."
 
@@ -855,10 +855,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">Prosím počkajte dokedy Fedora Media Writer neobnoví váš "
+"<p align=\"justify\">Prosím počkajte dokedy Omarchy Media Writer neobnoví váš "
 "prenosný disk.</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
@@ -892,8 +892,8 @@ msgstr "Obnoviť"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
-msgstr "Vyberte vydanie Fedory"
+msgid "Select Omarchy Release"
+msgstr "Vyberte vydanie Omarchy"
 
 #: ../src/app/qml/VersionPage.qml:32
 msgctxt "VersionPage|"
@@ -1061,13 +1061,13 @@ msgstr "Nepodarilo sa otvoriť disk na overenie údajov pre %1:"
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
-msgstr "Vyberte verziu Fedory"
+msgid "Select Omarchy Version"
+msgstr "Vyberte verziu Omarchy"
 
 #: ../src/app/qml/main.qml:113
 msgctxt "main|"
@@ -1083,8 +1083,8 @@ msgstr "Obnoviť"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1095,27 +1095,27 @@ msgstr ""
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
 "Nástroj na vytváranie spúšťateľných live USB diskov s niektorou edíciou "
-"Fedory. Fedora Media Writer dokáže nielen zapísať obraz na váš USB kľúč, ale "
+"Omarchy. Omarchy Media Writer dokáže nielen zapísať obraz na váš USB kľúč, ale "
 "ho pre vás aj stiahnuť. Ponúka oficiálne edície (Server, Workstation), "
-"Fedora spiny (Pracovné prostredie KDE, Xfce, Cinnamon, ...) a Laboratóriá "
-"Fedora (Design Suite, Security Lab, ...). Poskytuje taktiež základné "
+"Omarchy spiny (Pracovné prostredie KDE, Xfce, Cinnamon, ...) a Laboratóriá "
+"Omarchy (Design Suite, Security Lab, ...). Poskytuje taktiež základné "
 "informácie o každej edícii, aby ste si mohli vybrať tú správnu."
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"Fedora Media Writer umožňuje tiež zapísať iné spustiteľné ISO obrazy z vášho "
-"disku. Nezabudnite však, že bol testovaný iba s obrazmi Fedory."
+"Omarchy Media Writer umožňuje tiež zapísať iné spustiteľné ISO obrazy z vášho "
+"disku. Nezabudnite však, že bol testovaný iba s obrazmi Omarchy."
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1161,8 +1161,8 @@ msgid "media"
 msgstr ""
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "Zapisujte obrazy Fedory na vaše prenosné disky"
+msgid "Write Omarchy images to your portable drives"
+msgstr "Zapisujte obrazy Omarchy na vaše prenosné disky"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

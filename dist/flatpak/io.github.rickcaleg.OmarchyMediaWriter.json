@@ -1,9 +1,9 @@
 {
-    "id": "org.fedoraproject.MediaWriter",
+    "id": "io.github.rickcaleg.OmarchyMediaWriter",
     "runtime": "org.kde.Platform",
     "runtime-version": "6.10",
     "sdk": "org.kde.Sdk",
-    "command": "mediawriter",
+    "command": "omarchy-media-writer",
     "finish-args": [
         "--device=all",
         "--filesystem=host",
@@ -26,7 +26,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/FedoraQt/MediaWriter.git",
+                    "url": "https://github.com/RickCaleg/omarchy-media-writer.git",
                     "branch": "main"
                 }
             ]

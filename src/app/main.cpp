@@ -42,8 +42,8 @@ int main(int argc, char **argv)
     }
 #endif
 
-    QApplication::setOrganizationDomain("fedoraproject.org");
-    QApplication::setOrganizationName("fedoraproject.org");
+    QApplication::setOrganizationDomain("rickcaleg.github.io");
+    QApplication::setOrganizationName("rickcaleg.github.io");
     QApplication::setApplicationName("MediaWriter");
 
     QApplication app(argc, argv);
@@ -62,8 +62,8 @@ int main(int argc, char **argv)
         app.installTranslator(&translator);
     }
 
-    QGuiApplication::setDesktopFileName("org.fedoraproject.MediaWriter");
-    QGuiApplication::setWindowIcon(QIcon::fromTheme("org.fedoraproject.MediaWriter"));
+    QGuiApplication::setDesktopFileName("io.github.rickcaleg.OmarchyMediaWriter");
+    QGuiApplication::setWindowIcon(QIcon::fromTheme("io.github.rickcaleg.OmarchyMediaWriter"));
 
     mDebug() << "Injecting QML context properties";
     QQmlApplicationEngine engine;

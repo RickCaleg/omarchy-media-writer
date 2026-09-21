@@ -24,8 +24,8 @@ msgstr ""
 
 #: ../src/app/qml/AboutDialog.qml:48
 msgctxt "AboutDialog|"
-msgid "About Fedora Media Writer"
-msgstr "เกี่ยวกับ Fedora Media Writer"
+msgid "About Omarchy Media Writer"
+msgstr "เกี่ยวกับ Omarchy Media Writer"
 
 #: ../src/app/qml/AboutDialog.qml:57
 #, qt-format
@@ -35,8 +35,8 @@ msgstr "รุ่น %1"
 
 #: ../src/app/qml/AboutDialog.qml:64
 msgctxt "AboutDialog|"
-msgid "Fedora Media Writer is now checking for new releases"
-msgstr "Fedora Media Writer กำลังตรวจสอบว่ามีรุ่นใหม่หรือไม่"
+msgid "Omarchy Media Writer is now checking for new releases"
+msgstr "Omarchy Media Writer กำลังตรวจสอบว่ามีรุ่นใหม่หรือไม่"
 
 #: ../src/app/qml/AboutDialog.qml:70
 #, qt-format
@@ -271,10 +271,10 @@ msgstr "โปรดใส่ไดรฟ์ USB"
 msgctxt "DownloadPage|"
 msgid ""
 "Your drive will be resized to a smaller capacity. You may resize it back to "
-"normal by using Fedora Media Writer. This will remove installation media "
+"normal by using Omarchy Media Writer. This will remove installation media "
 "from your drive."
 msgstr ""
-"ไดรฟ์ของคุณจะถูกปรับขนาดให้เล็กลง คุณสามารถปรับขนาดไดรฟ์กลับให้เป็นปกติได้โดยการใช้ Fedora "
+"ไดรฟ์ของคุณจะถูกปรับขนาดให้เล็กลง คุณสามารถปรับขนาดไดรฟ์กลับให้เป็นปกติได้โดยการใช้ Omarchy "
 "Media Writer แต่กระบวนการนั้นจะลบตัวติดตั้งออกจากไดร์ฟของคุณ"
 
 #: ../src/app/qml/DownloadPage.qml:141
@@ -291,12 +291,12 @@ msgstr "ไม่มี"
 #, qt-format
 msgctxt "DownloadPage|"
 msgid ""
-"Your board or device is not supported by Fedora Media Writer yet. Please "
+"Your board or device is not supported by Omarchy Media Writer yet. Please "
 "check <a href=%1>this page</a> for more information about its compatibility "
 "with Fedora and how to create bootable media for it."
 msgstr ""
-"บอร์ดหรืออุปกรณ์ของคุณยังไม่ถูกรองรับโดย Fedora Media Writer โปรดตรวจสอบ<a "
-"href=%1>หน้านี้</a>สำหรับข้อมูลเพิ่มเติมเกี่ยวกับความเข้ากันได้กับ Fedora "
+"บอร์ดหรืออุปกรณ์ของคุณยังไม่ถูกรองรับโดย Omarchy Media Writer โปรดตรวจสอบ<a "
+"href=%1>หน้านี้</a>สำหรับข้อมูลเพิ่มเติมเกี่ยวกับความเข้ากันได้กับ Omarchy "
 "และวิธีการสร้างสื่อที่สามารถบูตได้"
 
 #: ../src/app/qml/DownloadPage.qml:160
@@ -824,10 +824,10 @@ msgstr ""
 #: ../src/app/qml/RestorePage.qml:87
 msgctxt "RestorePage|"
 msgid ""
-"<p align=\"justify\">Please wait while Fedora Media Writer restores your "
+"<p align=\"justify\">Please wait while Omarchy Media Writer restores your "
 "portable drive.</p>"
 msgstr ""
-"<p align=\"justify\">โปรดรอระหว่างที่ Fedora Media Writer คืนค่าไดรฟ์พกพาของคุณ</p>"
+"<p align=\"justify\">โปรดรอระหว่างที่ Omarchy Media Writer คืนค่าไดรฟ์พกพาของคุณ</p>"
 
 #: ../src/app/qml/RestorePage.qml:103
 msgctxt "RestorePage|"
@@ -858,8 +858,8 @@ msgstr "คืนค่า"
 
 #: ../src/app/qml/VersionPage.qml:29
 msgctxt "VersionPage|"
-msgid "Select Fedora Release"
-msgstr "เลือกรุ่น Fedora"
+msgid "Select Omarchy Release"
+msgstr "เลือกรุ่น Omarchy"
 
 #: ../src/app/qml/VersionPage.qml:32
 msgctxt "VersionPage|"
@@ -1024,13 +1024,13 @@ msgstr "ไม่สามารถไปยังจุดเริ่มต้
 
 #: ../src/app/qml/main.qml:80 ../src/app/qml/main.qml:127
 msgctxt "main|"
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #: ../src/app/qml/main.qml:99
 msgctxt "main|"
-msgid "Select Fedora Version"
-msgstr "เลือกรุ่น Fedora"
+msgid "Select Omarchy Version"
+msgstr "เลือกรุ่น Omarchy"
 
 #: ../src/app/qml/main.qml:113
 msgctxt "main|"
@@ -1046,8 +1046,8 @@ msgstr "คืนค่า"
 #. (itstool) path: component/name
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:9
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:3
-msgid "Fedora Media Writer"
-msgstr "Fedora Media Writer"
+msgid "Omarchy Media Writer"
+msgstr "Omarchy Media Writer"
 
 #. (itstool) path: component/summary
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:10
@@ -1058,27 +1058,27 @@ msgstr "สร้างไดร์ฟ USB Fedora live"
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:16
 msgid ""
 "A tool to create a bootable live USB drive with an edition of Fedora. Not "
-"only can Fedora Media Writer write an image to your flash drive, it can also "
+"only can Omarchy Media Writer write an image to your flash drive, it can also "
 "download it for you. It offers official editions (Server, Workstation), "
 "Fedora spins (KDE Plasma Desktop, Xfce Desktop, Cinnamon Desktop,...), and "
 "Fedora Labs (Design Suite, Security Lab,...). It provides basic information "
 "about each of them to help you make the right choice."
 msgstr ""
-"เครื่องมือในการสร้างไดรฟ์ USB บูตได้ที่มี Fedora รุ่นหนึ่ง Fedora Media Writer "
+"เครื่องมือในการสร้างไดรฟ์ USB บูตได้ที่มี Omarchy รุ่นหนึ่ง Omarchy Media Writer "
 "ไม่ได้ทำได้แค่เขียนอิมเมจไปยังแฟลชไดรฟ์ของคุณเท่านั้น "
 "โปรแกรมยังสามารถดาวน์โหลดอิมเมจให้คุณได้ด้วย โดยสามารถเลือกได้จากรุ่นเป็นทางการ (Server, "
-"Workstation), Fedora Spins (เดสก์ท็อป Xfce, เดสก์ท็อป Cinnamon, ...), และ Fedora "
+"Workstation), Omarchy Spins (เดสก์ท็อป Xfce, เดสก์ท็อป Cinnamon, ...), และ Omarchy "
 "แล็บ (ชุดออกแบบ, ชุดแล็บความปลอดภัย, ...) "
 "และโปรแกรมจะให้ข้อมูลเบื้องต้นเกี่ยวกับแต่ละรุ่นเพื่อให้คุณเลือกได้อย่างถูกต้อง"
 
 #. (itstool) path: description/p
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:17
 msgid ""
-"Fedora Media Writer can also write other bootable ISOs loaded from your "
+"Omarchy Media Writer can also write other bootable ISOs loaded from your "
 "local disk, but keep in mind that it's only tested with Fedora images."
 msgstr ""
-"Fedora Media Writer สามารถเขียนไฟล์ ISO อื่น ๆ ที่บูตได้จากดิสก์ของคุณได้เช่นกัน "
-"แต่โปรดทราบว่าโปรแกรมถูกทดสอบกับอิมเมจ Fedora เท่านั้น"
+"Omarchy Media Writer สามารถเขียนไฟล์ ISO อื่น ๆ ที่บูตได้จากดิสก์ของคุณได้เช่นกัน "
+"แต่โปรดทราบว่าโปรแกรมถูกทดสอบกับอิมเมจ Omarchy เท่านั้น"
 
 #. (itstool) path: keywords/keyword
 #: ../src/app/data/org.fedoraproject.MediaWriter.metainfo.xml.in:20
@@ -1121,8 +1121,8 @@ msgid "media"
 msgstr "media"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:48
-msgid "Write Fedora images to your portable drives"
-msgstr "เขียนอิมเมจ Fedora ไปยังไดรฟ์พกพาของคุณ"
+msgid "Write Omarchy images to your portable drives"
+msgstr "เขียนอิมเมจ Omarchy ไปยังไดรฟ์พกพาของคุณ"
 
 #: ../src/app/data/org.fedoraproject.MediaWriter.desktop:98
 msgid "fmw;usb;iso;bootable;"

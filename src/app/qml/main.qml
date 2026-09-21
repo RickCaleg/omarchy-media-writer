@@ -82,7 +82,7 @@ ApplicationWindow {
                 when: selectedPage == Units.Page.MainPage
                 PropertyChanges { 
                     target: mainWindow
-                    title: qsTr("Fedora Media Writer") 
+                    title: qsTr("Omarchy Media Writer") 
                 }
 
                 StateChangeScript {
@@ -101,7 +101,7 @@ ApplicationWindow {
             State {
                 name: "versionPage"
                 when: selectedPage == Units.Page.VersionPage
-                PropertyChanges { target: mainWindow; title: qsTr("Select Fedora Version") }
+                PropertyChanges { target: mainWindow; title: qsTr("Select Omarchy Version") }
                 StateChangeScript {
                     script: {
                         //state was pushing same page when returing from drivePage
@@ -129,7 +129,7 @@ ApplicationWindow {
                 when: selectedPage == Units.Page.DownloadPage
                 PropertyChanges {
                     target: mainWindow
-                    title: releases.variant ? releases.variant.statusString : qsTr("Fedora Media Writer")
+                    title: releases.variant ? releases.variant.statusString : qsTr("Omarchy Media Writer")
                 }
                 StateChangeScript {
                     script: { stackView.push("DownloadPage.qml") }

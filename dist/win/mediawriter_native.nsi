@@ -20,11 +20,11 @@ XPStyle on
 #!define VERSIONMINOR
 #!define VERSIONBUILD
 
-!define APPNAME           "Fedora Media Writer"
+!define APPNAME           "Omarchy Media Writer"
 !define /date CURRENTYEAR "%Y"
-!define COMPANYNAME       "Fedora Project"
+!define COMPANYNAME       "Richardson Calegari Saconi"
 !define COPYRIGHT         "${COMPANYNAME} ${CURRENTYEAR}"
-!define DESCRIPTION       "Tool to write Fedora images to flash drives"
+!define DESCRIPTION       "Tool to write Omarchy images to flash drives"
 !define SHORTVERSION      "${VERSIONMAJOR}.${VERSIONMINOR}.${VERSIONBUILD}"
 !define FULLVERSION       "${VERSIONMAJOR}.${VERSIONMINOR}.${VERSIONBUILD}.0"
 
@@ -41,9 +41,9 @@ Caption "${APPNAME} ${SHORTVERSION}"
 # These will be displayed by the "Click here for support information" link in "Add/Remove Programs"
 # It is possible to use "mailto:" links in here to open the email client
 
-!define HELPURL   "https://github.com/FedoraQt/MediaWriter" # "Support Information" link
-!define UPDATEURL "https://getfedora.org"                   # "Product Updates" link
-!define ABOUTURL  "https://getfedora.org"                   # "Publisher" link
+!define HELPURL   "https://github.com/RickCaleg/omarchy-media-writer" # "Support Information" link
+!define UPDATEURL "https://omarchy.org"                   # "Product Updates" link
+!define ABOUTURL  "https://omarchy.org"                   # "Publisher" link
 
 # This is the size (in kB) of all the files copied into "Program Files"
 #!define INSTALLSIZE
@@ -80,7 +80,7 @@ Var UninstLog
     !system "chmod +x tempinstaller.exe" = 0
     !system "tempinstaller.exe" = 2
     !if "${CERTPASS}" != ""
-        !system 'osslsigncode sign -pkcs12 "${CERTPATH}/authenticode.pfx" -readpass "${CERTPASS}" -h sha256 -n "Fedora Media Writer" -i https://getfedora.org -t http://timestamp.comodoca.com/authenticode -in "/c/uninstall.unsigned.exe" -out "/c/uninstall.exe" ' = 0
+        !system 'osslsigncode sign -pkcs12 "${CERTPATH}/authenticode.pfx" -readpass "${CERTPASS}" -h sha256 -n "Omarchy Media Writer" -i https://omarchy.org -t http://timestamp.comodoca.com/authenticode -in "/c/uninstall.unsigned.exe" -out "/c/uninstall.exe" ' = 0
     !else
         !system 'mv "/c/uninstall.unsigned.exe" "/c/uninstall.exe"' = 0
     !endif
